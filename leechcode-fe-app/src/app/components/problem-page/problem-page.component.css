@@ -10,7 +10,9 @@
 .righthandside{
     width:60%;
     height: 100%;
-
+}
+.editor{
+    width: 80%;
 }
 .problem-canvas{
     display: flex;

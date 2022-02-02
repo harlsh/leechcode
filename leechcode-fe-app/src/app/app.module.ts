@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { CodemirrorModule } from '@ctrl/ngx-codemirror';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProblemPageComponent } from './components/problem-page/problem-page.component';
@@ -19,7 +19,8 @@ import { ExampleComponent } from './components/example/example.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CodemirrorModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
