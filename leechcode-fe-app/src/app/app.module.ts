@@ -7,12 +7,15 @@ import { ProblemPageComponent } from './components/problem-page/problem-page.com
 import { ProblemStatementComponent } from './components/problem-statement/problem-statement.component';
 import { ExampleComponent } from './components/example/example.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
     ProblemPageComponent,
     ProblemStatementComponent,
-    ExampleComponent
+    ExampleComponent,
+    
   ],
   imports: [
     BrowserModule,

@@ -1,13 +1,19 @@
 <div class="problem-canvas">
     <div class="lefthandside">
-        <div class="problem-statement">
-            <app-problem-statement></app-problem-statement>
-        </div>
-        <div class="example">
-
-        </div>
-    </div>
-    <div class="righthandside">
-        
-    </div>
+        <ul class="tab-menu">
+            <li class="tab" *ngFor="let tab of tabs">
+                <a style="text-decoration: none;"(click)="openTab(tab)" href="#">{{tab}}</a>
+            </li>
+        </ul>
+        <ng-container *ngIf="selectedTab === 'Description'">
+            <div class="problem-statement">
+                <app-problem-statement></app-problem-statement>
+            </div>
+            <div class="example"></div>
+        </ng-container>
+        <ng-container *ngIf="selectedTab === 'Solution'">Solution</ng-container>
+        <ng-container *ngIf="selectedTab === 'Discuss'">Discuss</ng-container>
+</div>
+<div class="righthandside">
+</div>
 </div>

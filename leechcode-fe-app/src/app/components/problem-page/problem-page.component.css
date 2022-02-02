@@ -1,16 +1,43 @@
 .lefthandside{
     width:40%;
+    height:100%;
+     
+    align-items: center;
+    
+    border-radius: 20px;
+    align-items: flex-start;
 }
 .righthandside{
     width:60%;
     height: 100%;
-    background-color: aqua;
-    border: 2px aqua;
+
 }
 .problem-canvas{
     display: flex;
     flex-direction: row;
+    align-items: flex-start;
+    margin: 0 auto;
     width: 90%;
     border-radius: 20px;
     background-color: #f1f1f1;
+}
+.tab-menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #c4c4c4;
+    border-radius: 20px;
+}
+.tab{
+    list-style: none;
+    font-family: 'Montserrat', light;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width:33%;
 }

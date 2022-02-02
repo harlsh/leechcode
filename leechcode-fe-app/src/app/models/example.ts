@@ -1,4 +1,5 @@
 export class Example {
+    index: number;
     input: string;
     output: string;
     explanation: string;
