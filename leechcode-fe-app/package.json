@@ -19,6 +19,7 @@
     "@angular/platform-browser-dynamic": "~13.1.0",
     "@angular/router": "~13.1.0",
     "@ctrl/ngx-codemirror": "^5.1.1",
+    "@materia-ui/ngx-monaco-editor": "^6.0.0",
     "codeflask": "^1.4.1",
     "codemirror": "^5.65.1",
     "monaco-editor": "^0.31.1",

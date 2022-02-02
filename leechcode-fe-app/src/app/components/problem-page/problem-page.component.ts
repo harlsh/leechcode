@@ -10,7 +10,9 @@ import { Component, OnInit } from '@angular/core';
 export class ProblemPageComponent implements OnInit {
   tabs = ['Description','Solution','Discuss'];
   selectedTab = 'Description';
-  problem: "class Solution {\n\tpublic int[] twoSum(int[] nums, int target) {\n]t}\m}";
+  editorOptions = {theme: 'vs-dark', language: 'javascript'};
+  code: string = 'function x() {\nconsole.log("Hello world!");\n}';
+  originalCode: string = "class Solution {\n\tpublic int[] twoSum(int[] nums, int target) {\n\n\t}\n}";
   constructor() { }
 
   ngOnInit(): void {

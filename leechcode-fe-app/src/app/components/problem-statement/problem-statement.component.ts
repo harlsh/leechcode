@@ -8,6 +8,7 @@ import { Example } from '../../models/example';
 })
 export class ProblemStatementComponent implements OnInit {
   examples:Example[];
+  originalCode: string = "class Solution {\n\tpublic int[] twoSum(int[] nums, int target) {\n]t}\m}";
   constructor() { }
 
   ngOnInit(): void {
