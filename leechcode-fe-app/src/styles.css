@@ -2,5 +2,11 @@
 @import '~codemirror/lib/codemirror';
 @import '~codemirror/theme/material';
 .CodeMirror {
-    height: 350px !important;
-  }
+    flex:1;
+    max-height:100%;
+    max-width: 90%;
+}
+
+.CodeMirror-wrap pre {
+    word-break: break-word;
+}

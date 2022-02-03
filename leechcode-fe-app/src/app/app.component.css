@@ -12,3 +12,6 @@
 .code-sub{
     display: contents;
 }
+.app{
+    height: 100%;
+}
