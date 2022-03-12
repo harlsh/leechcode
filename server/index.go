@@ -19,6 +19,8 @@ func RunRouter() {
 		DB: db.DB,
 	}
 
+	router.Use(cors.Default())
+
 	routerGroup := router.Group("/api/v1")
 
 	routerGroup.GET("problems", repo.FindProblem)
@@ -35,6 +37,5 @@ func RunRouter() {
 	routerGroup.GET("test-case/:id", handlers.GetTestCase)
 	routerGroup.GET("test-cases", handlers.GetTestCases)
 
-	router.Use(cors.Default())
 	router.Run()
 }

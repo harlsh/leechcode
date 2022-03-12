@@ -17,8 +17,7 @@ type ProblemRepository struct {
 func (p *ProblemRepository) FindProblem(c *gin.Context) {
 	var problems []db.Problem
 	p.DB.Find(&problems)
-	c.JSON(http.StatusOK, gin.H{
-		"data": problems})
+	c.JSON(http.StatusOK, problems)
 }
 
 func (p *ProblemRepository) FindProblemBySlug(c *gin.Context) {

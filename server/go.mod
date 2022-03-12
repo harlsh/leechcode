@@ -9,6 +9,8 @@ require (
 	gorm.io/gorm v1.22.5
 )
 
+require github.com/gin-contrib/cors v1.3.1 // indirect
+
 require (
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/go-playground/locales v0.13.0 // indirect

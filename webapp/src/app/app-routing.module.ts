@@ -6,16 +6,18 @@ import { CreateProblemComponent } from './create-problem/create-problem.componen
 import { DiscussionComponent } from './discussion/discussion.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { ProblemListComponent } from './problem-list/problem-list.component';
+import { SolveProblemComponent } from './solve-problem/solve-problem.component';
 
 const routes: Routes = [
   { path: '', component: MainNavComponent },
   {
     path: 'problems',
     component: ProblemListComponent,
-    children: [
-      { path: 'create', component: CreateProblemComponent }
-    ]
+    // children: [
+    //   { path: ':id', component: SolveProblemComponent }
+    // ]
   },
+  { path: 'problems/:id', component: SolveProblemComponent },
   { path: 'discussion', component: DiscussionComponent },
   { path: 'contests', component: ContestsComponent },
   { path: 'about', component: AboutComponent },

@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -16,6 +17,13 @@ import { DiscussionComponent } from './discussion/discussion.component';
 import { ContestsComponent } from './contests/contests.component';
 import { AboutComponent } from './about/about.component';
 import { CreateProblemComponent } from './create-problem/create-problem.component';
+import { DataTableComponent } from './data-table/data-table.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatCardModule } from '@Angular/material/card';
+import { MatProgressSpinnerModule } from '@Angular/material/progress-spinner';
+import { SolveProblemComponent } from './solve-problem/solve-problem.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +33,9 @@ import { CreateProblemComponent } from './create-problem/create-problem.componen
     DiscussionComponent,
     ContestsComponent,
     AboutComponent,
-    CreateProblemComponent
+    CreateProblemComponent,
+    DataTableComponent,
+    SolveProblemComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +46,13 @@ import { CreateProblemComponent } from './create-problem/create-problem.componen
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatCardModule,
+    MatProgressSpinnerModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
