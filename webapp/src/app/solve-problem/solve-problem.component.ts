@@ -1,10 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-solve-problem',
   templateUrl: './solve-problem.component.html',
-  styleUrls: ['./solve-problem.component.sass']
+  styleUrls: ['./solve-problem.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class SolveProblemComponent implements OnInit {
 

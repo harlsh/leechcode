@@ -29,7 +29,8 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MonacoEditorModule } from '@materia-ui/ngx-monaco-editor';
 import { FormsModule } from '@angular/forms';
 import { EditorComponent } from './editor/editor.component';
-
+import { MatGridListModule } from '@angular/material/grid-list';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -60,11 +61,12 @@ import { EditorComponent } from './editor/editor.component';
     MatSortModule,
     MatCardModule,
     MatTabsModule,
+    MatGridListModule,
     MatProgressSpinnerModule,
     HttpClientModule,
     FormsModule,
     MonacoEditorModule,
-
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

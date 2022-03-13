@@ -19,8 +19,6 @@ export class EditorComponent implements OnInit {
   userLanguage: string = "javascript";
   availableLanguages: string[] = [
     "javascript",
-    "html",
-    "css",
     "java",
     "c",
     "go"

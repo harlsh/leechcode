@@ -1,7 +1,14 @@
 <mat-tab-group>
   <mat-tab label="Description">
     <ng-template matTabContent>
-      <app-problem-content titleSlug="{{ titleSlug }}"></app-problem-content>
+      <mat-grid-list cols="2">
+        <mat-grid-tile
+          ><app-problem-content
+            titleSlug="{{ titleSlug }}"
+          ></app-problem-content
+        ></mat-grid-tile>
+        <mat-grid-tile> <app-editor></app-editor></mat-grid-tile>
+      </mat-grid-list>
     </ng-template>
   </mat-tab>
   <mat-tab label="Solution">
