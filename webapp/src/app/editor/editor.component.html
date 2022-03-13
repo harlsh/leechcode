@@ -1,0 +1,16 @@
+<select
+  name="userLanguage"
+  class="userLanguage"
+  [(ngModel)]="userLanguage"
+  (change)="changeLanguage($event)"
+>
+  <option *ngFor="let lang of availableLanguages" value="{{ lang }}">
+    {{ lang }}
+  </option>
+</select>
+<ngx-monaco-editor
+  class="textEditorContainer"
+  [options]="editorOptions"
+  [(ngModel)]="userCode"
+  (init)="editorInit($event)"
+></ngx-monaco-editor>

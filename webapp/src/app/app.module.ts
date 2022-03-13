@@ -26,7 +26,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SolveProblemComponent } from './solve-problem/solve-problem.component';
 import { ProblemContentComponent } from './problem-content/problem-content.component';
 import { MatTabsModule } from '@angular/material/tabs';
-
+import { MonacoEditorModule } from '@materia-ui/ngx-monaco-editor';
+import { FormsModule } from '@angular/forms';
+import { EditorComponent } from './editor/editor.component';
 
 
 @NgModule({
@@ -40,7 +42,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     CreateProblemComponent,
     DataTableComponent,
     SolveProblemComponent,
-    ProblemContentComponent
+    ProblemContentComponent,
+    EditorComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +62,9 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatTabsModule,
     MatProgressSpinnerModule,
     HttpClientModule,
+    FormsModule,
+    MonacoEditorModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,6 +4,7 @@ import { AboutComponent } from './about/about.component';
 import { ContestsComponent } from './contests/contests.component';
 import { CreateProblemComponent } from './create-problem/create-problem.component';
 import { DiscussionComponent } from './discussion/discussion.component';
+import { EditorComponent } from './editor/editor.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { ProblemListComponent } from './problem-list/problem-list.component';
 import { SolveProblemComponent } from './solve-problem/solve-problem.component';
@@ -20,7 +21,8 @@ const routes: Routes = [
     ]
   },
 
-  { path: 'problems/:id', component: SolveProblemComponent }
+  { path: 'problems/:id', component: SolveProblemComponent },
+  { path: 'editor', component: EditorComponent}
 ];
 
 @NgModule({
