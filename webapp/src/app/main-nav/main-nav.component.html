@@ -8,10 +8,26 @@
   >
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item routerLink="/problems">Problems</a>
-      <a mat-list-item routerLink="/discussion">Discuss</a>
-      <a mat-list-item routerLink="/contests">Contests</a>
-      <a mat-list-item routerLink="/about">About</a>
+      <a
+        mat-list-item
+        [routerLink]="['/home', { outlets: { sidebar: ['problems'] } }]"
+        >Problems</a
+      >
+      <a
+        mat-list-item
+        [routerLink]="['/home', { outlets: { sidebar: ['discussion'] } }]"
+        >Discuss</a
+      >
+      <a
+        mat-list-item
+        [routerLink]="['/home', { outlets: { sidebar: ['contests'] } }]"
+        >Contests</a
+      >
+      <a
+        mat-list-item
+        [routerLink]="['/home', { outlets: { sidebar: ['about'] } }]"
+        >About</a
+      >
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -27,6 +43,6 @@
       </button>
       <span>LeechCode</span>
     </mat-toolbar>
-    <router-outlet></router-outlet>
+    <router-outlet name="sidebar"></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

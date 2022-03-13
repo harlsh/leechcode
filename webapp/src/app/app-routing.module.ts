@@ -9,19 +9,18 @@ import { ProblemListComponent } from './problem-list/problem-list.component';
 import { SolveProblemComponent } from './solve-problem/solve-problem.component';
 
 const routes: Routes = [
-  { path: '', component: MainNavComponent },
   {
-    path: 'problems',
-    component: ProblemListComponent,
-    // children: [
-    //   { path: ':id', component: SolveProblemComponent }
-    // ]
+    path: 'home',
+    component: MainNavComponent,
+    children: [
+      { path: 'problems', component: ProblemListComponent, outlet: "sidebar" },
+      { path: 'discussion', component: DiscussionComponent, outlet: "sidebar" },
+      { path: 'contests', component: ContestsComponent, outlet: "sidebar" },
+      { path: 'about', component: AboutComponent, outlet: "sidebar" }
+    ]
   },
-  { path: 'problems/:id', component: SolveProblemComponent },
-  { path: 'discussion', component: DiscussionComponent },
-  { path: 'contests', component: ContestsComponent },
-  { path: 'about', component: AboutComponent },
 
+  { path: 'problems/:id', component: SolveProblemComponent }
 ];
 
 @NgModule({

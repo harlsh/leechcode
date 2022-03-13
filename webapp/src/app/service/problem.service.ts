@@ -15,4 +15,8 @@ export class ProblemService {
   getProblems(): Observable<Problem[]> {
     return this.http.get<Problem[]>(this.url + "problems")
   }
+
+  getProblem(titleSlug: string): Observable<Problem> {
+    return this.http.get<Problem>(this.url + "problems/" + titleSlug)
+  }
 }

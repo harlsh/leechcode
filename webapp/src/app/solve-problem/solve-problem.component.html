@@ -1,1 +1,22 @@
-<p>solve-problem works!</p>
+<mat-tab-group>
+  <mat-tab label="Description">
+    <ng-template matTabContent>
+      <app-problem-content titleSlug="{{ titleSlug }}"></app-problem-content>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Solution">
+    <ng-template matTabContent>
+      <h1>Solution</h1>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Discuss">
+    <ng-template matTabContent>
+      <h1>Discuss</h1>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="Submission">
+    <ng-template matTabContent>
+      <h1>Submission</h1>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>

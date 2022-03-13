@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-solve-problem',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SolveProblemComponent implements OnInit {
 
-  constructor() { }
+  titleSlug: string | undefined;
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.titleSlug = this.route.snapshot.params['id'];
+    console.log(this.titleSlug)
   }
 
 }

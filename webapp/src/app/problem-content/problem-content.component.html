@@ -1,0 +1,10 @@
+<div>
+  <h2 class="mat-h2">{{ problem.ID }}. {{ problem.title }}</h2>
+  <div layout-align="center center" layout="column">
+    <button mat-button>{{ problem.difficulty }}</button>
+    <i class="fas fa-thumbs-up"> {{ problem.likes }}</i>
+    <i class="fas fa-thumbs-down">{{ problem.dislikes }}</i>
+  </div>
+  <mat-divider></mat-divider>
+  <div [innerHTML]="problem.content"></div>
+</div>

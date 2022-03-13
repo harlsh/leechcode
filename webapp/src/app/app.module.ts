@@ -24,6 +24,10 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatCardModule } from '@Angular/material/card';
 import { MatProgressSpinnerModule } from '@Angular/material/progress-spinner';
 import { SolveProblemComponent } from './solve-problem/solve-problem.component';
+import { ProblemContentComponent } from './problem-content/problem-content.component';
+import { MatTabsModule } from '@angular/material/tabs';
+
+
 
 @NgModule({
   declarations: [
@@ -35,7 +39,8 @@ import { SolveProblemComponent } from './solve-problem/solve-problem.component';
     AboutComponent,
     CreateProblemComponent,
     DataTableComponent,
-    SolveProblemComponent
+    SolveProblemComponent,
+    ProblemContentComponent
   ],
   imports: [
     BrowserModule,
@@ -51,8 +56,9 @@ import { SolveProblemComponent } from './solve-problem/solve-problem.component';
     MatPaginatorModule,
     MatSortModule,
     MatCardModule,
+    MatTabsModule,
     MatProgressSpinnerModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

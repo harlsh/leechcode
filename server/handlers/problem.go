@@ -26,10 +26,10 @@ func (p *ProblemRepository) FindProblemBySlug(c *gin.Context) {
 
 	err := p.DB.First(&problem, "title_slug = ?", id).Error
 	if errors.Is(err, gorm.ErrRecordNotFound) {
-		c.JSON(404, gin.H{"data": nil})
+		c.JSON(404, nil)
 		return
 	}
-	c.JSON(http.StatusOK, gin.H{"data": problem})
+	c.JSON(http.StatusOK, problem)
 }
 
 func (p *ProblemRepository) CreateProblem(context *gin.Context) {
