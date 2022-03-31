@@ -28,7 +28,7 @@ func RunRouter() {
 	routerGroup.POST("solution", handlers.SubmitSolution)
 
 	routerGroup.GET("compilers", handlers.GetAllCompilers)
-
+	routerGroup.POST("execute", handlers.PostSubmission)
 	routerGroup.POST("test-case", handlers.CreateTestCase)
 	routerGroup.GET("test-case/:id", handlers.GetTestCase)
 	routerGroup.GET("test-cases", handlers.GetTestCases)
