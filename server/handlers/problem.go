@@ -6,6 +6,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
+	"gorm.io/gorm/clause"
 
 	"leechcode/db"
 )
@@ -22,58 +23,18 @@ func (p *ProblemRepository) FindProblem(c *gin.Context) {
 }
 
 func (p *ProblemRepository) FindProblemBySlug(c *gin.Context) {
-	var problem db.Problem
-	codeSnippets := []db.CodeSnippet{
-
-		{
-			Lang:     "C++",
-			LangSlug: "cpp",
-			Code:     "class Solution {\npublic:\n    vector<int> twoSum(vector<int>& nums, int target) {\n        \n    }\n};",
-		},
-		{
-			Lang:     "Java",
-			LangSlug: "java",
-			Code:     "class Solution {\n    public int[] twoSum(int[] nums, int target) {\n        \n    }\n}",
-		},
-		{
-			Lang:     "Python",
-			LangSlug: "python",
-			Code:     "class Solution(object):\n    def twoSum(self, nums, target):\n        \"\"\"\n        :type nums: List[int]\n        :type target: int\n        :rtype: List[int]\n        \"\"\"\n        ",
-		},
-		{
-			Lang:     "Python3",
-			LangSlug: "python3",
-			Code:     "class Solution:\n    def twoSum(self, nums: List[int], target: int) -> List[int]:\n        ",
-		},
-		{
-			Lang:     "C",
-			LangSlug: "c",
-			Code:     "\n\n/**\n * Note: The returned array must be malloced, assume caller calls free().\n */\nint* twoSum(int* nums, int numsSize, int target, int* returnSize){\n\n}",
-		},
-		{
-			Lang:     "C#",
-			LangSlug: "csharp",
-			Code:     "public class Solution {\n    public int[] TwoSum(int[] nums, int target) {\n        \n    }\n}",
-		},
-		{
-			Lang:     "JavaScript",
-			LangSlug: "javascript",
-			Code:     "/**\n * @param {number[]} nums\n * @param {number} target\n * @return {number[]}\n */\nvar twoSum = function(nums, target) {\n    \n};",
-		},
-		{
-			Lang:     "Ruby",
-			LangSlug: "ruby",
-			Code:     "# @param {Integer[]} nums\n# @param {Integer} target\n# @return {Integer[]}\ndef two_sum(nums, target)\n    \nend",
-		},
-	}
+	problem := db.Problem{}
+	// codeSnippets := []db.CodeSnippet{}
 	id := c.Param("id")
 
-	err := p.DB.Find(&problem, "title_slug = ?", id).Error
+	// // err := p.DB.Find(&problem, "title_slug = ?", id).Error
+	// p.DB.Find(&codeSnippets)
+	err := p.DB.Preload(clause.Associations).Find(&problem, "title_slug = ?", id).Error
 	if errors.Is(err, gorm.ErrRecordNotFound) {
-		c.JSON(404, gin.H{"data": nil})
+		c.JSON(404, gin.H{"data": "No data"})
 		return
 	}
-	c.JSON(http.StatusOK, gin.H{"data": problem, "codeSnippets": codeSnippets})
+	c.JSON(http.StatusOK, gin.H{"data": problem})
 }
 
 func (p *ProblemRepository) CreateProblem(context *gin.Context) {

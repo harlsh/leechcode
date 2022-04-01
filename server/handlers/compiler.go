@@ -24,8 +24,11 @@ func GetAllCompilers(context *gin.Context) {
 func PostSubmission(context *gin.Context) {
 	var input db.Solution
 	err := context.ShouldBindJSON(&input)
-	// client := piston.CreateDefaultClient()
-	// output, err := client.Execute(input.Language, input.Version, input.Code, input.Params)
+	if err != nil {
+		context.JSON(http.StatusBadRequest, gin.H{"message": "Bad request"})
+	}
+	client := piston.CreateDefaultClient()
+	output, err := client.Execute(input.Language, input.Version, []piston.Code{{Content: input.Code}})
 
 	if err != nil {
 		context.JSON(http.StatusNotFound, gin.H{"message": "Couldn't connect to piston"})
@@ -35,7 +38,7 @@ func PostSubmission(context *gin.Context) {
 	// creating an entry in the db
 	db.DB.Create(input)
 
-	context.JSON(http.StatusOK, gin.H{"message": "Solution has been submitted"})
+	context.JSON(http.StatusOK, gin.H{"output": output})
 	// TODO: implement the following
 	// get the test case
 
