@@ -1,0 +1,53 @@
+<div class="box">
+  <div class="container">
+    <a routerLink="/home">
+      <img
+        src="assets/octohedron.png"
+        width="75"
+        height="75"
+        class="d-inline-block mr-1"
+      />
+    </a>
+    <h1
+      style="
+        color: white;
+        font-family: Montserrat;
+        font-size: 3em;
+        text-align: center;
+      "
+    >
+      LeechCode
+    </h1>
+    <div class="loginframe">
+      <h2
+        style="
+          color: black;
+          font-family: Montserrat;
+          font-size: 1.5em;
+          text-align: center;
+        "
+      >
+        Sign in to your account
+      </h2>
+      <app-loginform (formData)="login($event)"></app-loginform>
+      <button class="mat-raised-button" style="
+      color: black;
+      font-family: Montserrat;
+      font-size: 1em;
+      text-align: center;
+    "(click)="loginWithGoogle()">
+        Sign In with Google
+      </button>
+      <a
+        style="
+          color: black;
+          font-family: Montserrat;
+          font-size: 1em;
+          text-align: center;
+        "
+        routerLink="/register"
+        >Don't have an account? Click here to sign up</a
+      >
+    </div>
+  </div>
+</div>

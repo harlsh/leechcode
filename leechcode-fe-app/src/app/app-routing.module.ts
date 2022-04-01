@@ -8,6 +8,9 @@ import { CreateProblemComponent } from './components/adminpanel/create-problem/c
 import { UpdateProblemComponent } from './components/adminpanel/update-problem/update-problem.component';
 import { SolutionPageComponent } from './components/problem-page/solution-page/solution-page.component';
 import { ProblemDiscussPageComponent } from './components/problem-page/problem-discuss-page/problem-discuss-page.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+
 const routes: Routes = [{
   path: 'home', component: HomePageComponent
 }, {path: 'problem', component: ProblemPageComponent 
@@ -19,6 +22,10 @@ const routes: Routes = [{
 },{path: 'admin/createproblem', component: CreateProblemComponent 
 },{path: 'admin/updateproblem/:titleSlug', component: UpdateProblemComponent 
 },{path: '', redirectTo: '/home', pathMatch: 'full' 
+},{ path: 'login', component: LoginComponent },{ path: 'register', component: RegisterComponent },{
+  path: 'home',
+  loadChildren: () =>
+    import('./auth/auth.module').then((m) => m.AuthModule),
 }];
 
 @NgModule({

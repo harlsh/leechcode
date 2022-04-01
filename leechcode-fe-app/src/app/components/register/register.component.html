@@ -1,0 +1,45 @@
+<div class="box">
+  <div class="container">
+    <a routerLink="/home">
+      <img
+        src="assets/octohedron.png"
+        width="75"
+        height="75"
+        class="d-inline-block mr-1"
+      />
+    </a>
+    <h1
+      style="
+        color: white;
+        font-family: Montserrat;
+        font-size: 3em;
+        text-align: center;
+      "
+    >
+      LeechCode
+    </h1>
+    <div class="loginframe">
+      <h2
+        style="
+          color: black;
+          font-family: Montserrat;
+          font-size: 1.5em;
+          text-align: center;
+        "
+      >
+        Get started with your account
+      </h2>
+      <app-loginform (formData)="register($event)"></app-loginform>
+      <a
+        style="
+          color: black;
+          font-family: Montserrat;
+          font-size: 1em;
+          text-align: center;
+        "
+        routerLink="/login"
+        >Already have an account? Click here to login</a
+      >
+    </div>
+  </div>
+</div>
