@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"fmt"
 	"net/http"
 
 	"leechcode/db"
@@ -22,6 +23,8 @@ func GetAllCompilers(context *gin.Context) {
 }
 
 func PostSubmission(context *gin.Context) {
+
+	fmt.Print("hello ni")
 	var input db.Solution
 	err := context.ShouldBindJSON(&input)
 	if err != nil {
@@ -35,8 +38,8 @@ func PostSubmission(context *gin.Context) {
 		return
 	}
 
-	// creating an entry in the db
-	db.DB.Create(input)
+	// // creating an entry in the db
+	// db.DB.Create(input)
 
 	context.JSON(http.StatusOK, gin.H{"output": output})
 	// TODO: implement the following
