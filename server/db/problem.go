@@ -12,11 +12,5 @@ type Problem struct {
 	Dislikes         int    `json:"dislikes"`
 	ExampleTestCases string `json:"exampleTestCases"`
 	Hints            string `json:"hints"`
-}
-
-type CodeSnippet struct {
-	gorm.Model `json:"-"`
-	Lang       string `json:"lang"`
-	LangSlug   string `json:"langSlug"`
-	Code       string `json:"code"`
+	// CodeSnippets     []CodeSnippet `json:"codeSnippets" gorm:"constraint:OnUpdate:CASCADE,OnDelete:SET NULL;"`
 }
