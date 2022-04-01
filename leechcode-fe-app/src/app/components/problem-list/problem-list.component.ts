@@ -1,3 +1,4 @@
+import { problemList } from './problem-list.services';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProblemListComponent implements OnInit {
 
-  constructor() { }
+  constructor(public service: problemList){ }
+
+  problems: any;
 
   ngOnInit(): void {
+
+    this.service.getProjects().subscribe(data => {
+      this.problems.data = data;
+    });
   }
 
 }
