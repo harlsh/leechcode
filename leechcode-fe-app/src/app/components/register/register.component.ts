@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
 
   register(data: LoginData) {
     this.authService
-      .register(data)
+      .SignUp(data.email,data.password)
       .then(() => this.router.navigate(['/login']))
       .catch((e) => console.log(e.message));
   }

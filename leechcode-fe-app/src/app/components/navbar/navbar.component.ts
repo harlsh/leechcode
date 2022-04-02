@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { User } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-navbar',
@@ -9,14 +10,16 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(public authService: AuthService, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.authService.isLoggedIn)
+  }
 
   logout() {
     this.authService
-      .logout()
-      .then(() => this.router.navigate(['/']))
+      .SignOut()
+      .then(() => this.router.navigate(['/home']))
       .catch((e) => console.log(e.message));
   }
 

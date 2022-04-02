@@ -10,17 +10,21 @@ import { SolutionPageComponent } from './components/problem-page/solution-page/s
 import { ProblemDiscussPageComponent } from './components/problem-page/problem-discuss-page/problem-discuss-page.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { GuardGuard } from './services/guard.guard';
+import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
 
 const routes: Routes = [{
   path: 'home', component: HomePageComponent
+},{
+  path: 'forgotpassword', component: ForgotpasswordComponent
 }, {path: 'problem', component: ProblemPageComponent 
 }, {path: 'problem/:titleSlug/discuss', component: ProblemDiscussPageComponent 
 }, {path: 'problem/:titleSlug/description', component: ProblemPageComponent 
 }, {path: 'problem/:titleSlug/solution', component: SolutionPageComponent 
-},{path: 'admin', component: AdminPanelComponent 
-},{path: 'admin/problemlist', component: AdminProbListComponent 
-},{path: 'admin/createproblem', component: CreateProblemComponent 
-},{path: 'admin/updateproblem/:titleSlug', component: UpdateProblemComponent 
+},{path: 'admin', component: AdminPanelComponent  , canActivate: [GuardGuard]
+},{path: 'admin/problemlist', component: AdminProbListComponent , canActivate: [GuardGuard]
+},{path: 'admin/createproblem', component: CreateProblemComponent , canActivate: [GuardGuard]
+},{path: 'admin/updateproblem/:titleSlug', component: UpdateProblemComponent , canActivate: [GuardGuard]
 },{path: '', redirectTo: '/home', pathMatch: 'full' 
 },{ path: 'login', component: LoginComponent },{ path: 'register', component: RegisterComponent },{
   path: 'home',

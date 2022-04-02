@@ -37,11 +37,20 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SolutionPageComponent } from './components/problem-page/solution-page/solution-page.component';
 import { ProblemDiscussPageComponent } from './components/problem-page/problem-discuss-page/problem-discuss-page.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
-import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { LoginComponent } from './components/login/login.component';
 import { LoginformComponent } from './components/login/loginform/loginform.component';
 import { RegisterComponent } from './components/register/register.component';
+import { AuthService } from './services/auth.service';
+
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { environment } from '../environments/environment';
+import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
+import { ForgotpasswordformComponent } from './components/forgotpassword/forgotpasswordform/forgotpasswordform.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +70,8 @@ import { RegisterComponent } from './components/register/register.component';
     LoginComponent,
     LoginformComponent,
     RegisterComponent,
+    ForgotpasswordComponent,
+    ForgotpasswordformComponent,
     
   ],
   imports: [
@@ -78,12 +89,14 @@ import { RegisterComponent } from './components/register/register.component';
     MatButtonModule, ReactiveFormsModule,
     MatInputModule,
     MatFormFieldModule,
-    MatButtonModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth())
+    MatButtonModule,AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(environment.firebase),
     
   ],
-  providers: [ProblemsApiService],
+  providers: [ProblemsApiService,AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
