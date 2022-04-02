@@ -1,7 +1,7 @@
 # Front End Updates: 
 1. Implemented Firebase Authentication
 2. Created Login,Register, Forgot Password Pages
-3. Refactored UI to improve site's responsiveness
+3. Completely Refactored all previously created pages to improve site's responsiveness
 4. Added Google Sign In Authentication
 5. Added more cypress tests and front end tests
 
