@@ -1,0 +1,56 @@
+<app-navbar></app-navbar>
+<div class="box">
+  <ul class="nav">
+    <li class="nav-item">
+      <a
+        class="nav-link active"
+        routerLink="/problem/statement"
+        aria-current="page"
+        href="#"
+        style="color:black; font-family: Montserrat; font-size: 1.5em;"
+        >Problem statement</a
+      >
+    </li>
+
+  </ul>
+  <h3 style="color:black; font-family: Montserrat; font-size: 2em; font-weight: 400;">Problem statement</h3>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th class="header">Problem ID  </th>
+        <th class="header" >Title</th>
+        <th class="header">Statement</th>
+        <th class="header">Actions</th>
+      </tr>
+    </thead>
+    <!-- <tbody>
+        <tr *ngFor="let solution of solutions; let i = index" [attr.data-index]="i">
+        <td class="data">{{ i }}</td>
+        <td class="data">{{ solution.title }}</td>
+        <td class="data">{{ solution.difficulty }}</td>
+        <td class="data">
+          <button
+            (click)="updatesolution(solution.titleSlug)"
+            class="btn btn-info"
+          >
+            Update
+          </button>
+          <button
+            (click)="viewsolution(solution.titleSlug)"
+            class="btn btn-info"
+            style="margin-left: 10px"
+          >
+            View
+          </button>
+          <button
+            (click)="deletesolution(solution.titleSlug)"
+            class="btn btn-danger"
+            style="margin-left: 10px"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody> -->
+  </table>
+</div>

@@ -29,3 +29,256 @@
   max-height: 90%;
   scrollbar-width: thin;
 }
+
+
+.box{
+  /* octahedron 1 */
+
+position: static;
+width: 74px;
+height: 224px;
+left: 35px;
+top: 105.85px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 0px;
+}
+.title{
+  position: static;
+  width: 173px;
+  height: 80px;
+  left: 35px;
+  top: 100.85px;
+  
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 50px;
+  line-height: 80px;
+  /* identical to box height, or 267% */
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  
+  color: #ffffff;
+  
+  
+  /* Inside auto layout */
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+  margin: 0px 0px;
+}
+
+.background{
+  /* Browser Window */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 10px 35px;
+margin: 0px;
+position:absolute;
+top:0px;
+right:0px;
+bottom:0px;
+left:0px;
+
+background: linear-gradient(0deg, rgba(255, 139, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%), linear-gradient(180deg, #0200C6 0%, rgba(196, 196, 196, 0) 100%)  center center fixed; 
+
+border: none;
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+.navbar{
+  position: static;
+width: 1296px;
+height: 75.85px;
+left: 35px;
+top: 30px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 0px;
+}
+.pages{
+  /* Pages */
+
+position: absolute;
+width: 985px;
+height: 60px;
+left: 346px;
+top: 38px;
+
+}
+
+.aboutusbtn{
+  position: absolute;
+width: 118px;
+height: 30px;
+left: 250px;
+top: 53px;
+background-color: Transparent;
+border: none;
+cursor: pointer;
+overflow: hidden;
+outline: none;
+font-family: Montserrat;
+font-style: normal;
+font-weight: 500;
+font-size: 25px;
+line-height: 30px;
+display: flex;
+align-items: center;
+text-transform: capitalize;
+
+color: #ffffff;
+}
+.problemsbtn{
+  position: absolute;
+width: 118px;
+height: 30px;
+left: 500px;
+top: 53px;
+background-color: Transparent;
+border: none;
+cursor: pointer;
+overflow: hidden;
+outline: none;
+font-family: Montserrat;
+font-style: normal;
+font-weight: 500;
+font-size: 25px;
+line-height: 30px;
+display: flex;
+align-items: center;
+text-transform: capitalize;
+
+color: #ffffff;
+}
+.discussbtn{
+  position: absolute;
+width: 118px;
+height: 30px;
+left: 750px;
+top: 53px;
+background-color: Transparent;
+border: none;
+cursor: pointer;
+overflow: hidden;
+outline: none;
+font-family: Montserrat;
+font-style: normal;
+font-weight: 500;
+font-size: 25px;
+line-height: 30px;
+display: flex;
+align-items: center;
+text-transform: capitalize;
+
+color: #ffffff;
+}
+.signinbtn{
+  position: absolute;
+width: 110px;
+height: 50px;
+
+left: 1000px;
+top: 25px;
+cursor: pointer;
+overflow: hidden;
+outline: none;
+border: none;
+font-family: Montserrat;
+font-style: normal;
+font-weight: 500;
+font-size: 25px;
+line-height: 30px;
+display: flex;
+align-items: center;
+text-transform: uppercase;
+font-feature-settings: 'case' on;
+background: #F1F1F1;
+border-radius: 8px;
+color: #000000;
+}
+.infolayout{
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+
+position: static;
+width: 887px;
+height: 360px;
+left: 535px;
+top: 359.85px;
+
+/* Inside auto layout */
+flex: none;
+order: 4;
+flex-grow: 0;
+margin: 0px 0px;
+}
+.infotext{
+  position: static;
+width: 885px;
+height: 204px;
+left: 0px;
+top: 0px;
+
+font-family: Montserrat;
+font-style: normal;
+font-weight: 600;
+font-size: 100px;
+line-height: 80px;
+/* or 80% */
+display: flex;
+align-items: center;
+
+color: #F1F1F1;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 0px;
+}
+.info2text{
+  position: static;
+width: 887px;
+height: 156px;
+left: 0px;
+top: 204px;
+
+font-family: Montserrat;
+font-style: normal;
+font-weight: normal;
+font-size: 45px;
+line-height: 50px;
+/* or 111% */
+display: flex;
+align-items: center;
+
+color: #F1F1F1;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+margin: 0px 0px;
+}
