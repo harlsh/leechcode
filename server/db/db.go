@@ -7,7 +7,6 @@ import (
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
-	"gorm.io/gorm/logger"
 )
 
 var (
@@ -30,7 +29,6 @@ func ConnectDatabase() {
 	if err != nil {
 		panic(err.Error())
 	}
-
 	DB.AutoMigrate(&Problem{})
 	DB.AutoMigrate(&TestCase{})
 	DB.AutoMigrate(&Solution{})
