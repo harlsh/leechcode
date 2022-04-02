@@ -1,40 +1,56 @@
+<app-navbar></app-navbar>
 <div class="box">
-    <ul class="nav">
-      <li class="nav-item">
-        <a
-          class="nav-link active"
-          routerLink="{{ descriptionUrl }}"
-          aria-current="page"
-          href="#"
-          style="color: black; font-family: Montserrat; font-size: 1.5em"
-          >Description</a
-        >
-      </li>
-      <li class="nav-item">
-        <a
-          class="nav-link"
-          routerLink="{{ solutionUrl }}"
-          href="#"
-          style="color: black; font-family: Montserrat; font-size: 1.5em"
-          >Solution</a
-        >
-      </li>
-      <li class="nav-item">
-        <a
-          class="nav-link"
-          routerLink="{{ discussUrl }}"
-          href="#"
-          style="color: black; font-family: Montserrat; font-size: 1.5em"
-          >Discuss</a
-        >
-      </li>
-    </ul>
-    <div class="main-row">
-      <div class="lefthandside">
-        <app-problem-statement></app-problem-statement>
-      </div>
-      <div class="righthandside">
-        <h1>Discuss Plug-In Goes Here</h1>
-      </div>
-    </div>
+  <ul class="nav">
+    <li class="nav-item">
+      <a
+        class="nav-link active"
+        routerLink="/problem/discussions"
+        aria-current="page"
+        href="#"
+        style="color:black; font-family: Montserrat; font-size: 1.5em;"
+        >Discussions</a
+      >
+    </li>
 
+  </ul>
+  <h3 style="color:black; font-family: Montserrat; font-size: 2em; font-weight: 400;">Discussions</h3>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th class="header">ID  </th>
+        <th class="header" >Title</th>
+        <th class="header">Description</th>
+        <th class="header">Actions</th>
+      </tr>
+    </thead>
+    <!-- <tbody>
+        <tr *ngFor="let discussion of discussions; let i = index" [attr.data-index]="i">
+        <td class="data">{{ i }}</td>
+        <td class="data">{{ discussion.title }}</td>
+        <td class="data">{{ discussion.difficulty }}</td>
+        <td class="data">
+          <button
+            (click)="updatediscussion(discussion.titleSlug)"
+            class="btn btn-info"
+          >
+            Update
+          </button>
+          <button
+            (click)="viewdiscussion(discussion.titleSlug)"
+            class="btn btn-info"
+            style="margin-left: 10px"
+          >
+            View
+          </button>
+          <button
+            (click)="deletediscussion(discussion.titleSlug)"
+            class="btn btn-danger"
+            style="margin-left: 10px"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody> -->
+  </table>
+</div>
