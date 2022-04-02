@@ -8,7 +8,6 @@ import {MatMenuModule} from '@angular/material/menu';
 
 import { ProblemPageComponent } from './components/problem-page/problem-page.component';
 import { ProblemStatementComponent } from './components/problem-statement/problem-statement.component';
-import { ExampleComponent } from './components/example/example.component';
 import { MonacoEditorModule } from '@materia-ui/ngx-monaco-editor';
 import { problemList } from './components/problem-list/problem-list.services';
 
@@ -64,12 +63,10 @@ import { ProblemDiscussPageComponent } from './components/problem-page/problem-d
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatTabsModule,
     MatMenuModule,
     NgbModule,
     MatToolbarModule,
     MatButtonModule
-    
   ],
   providers: [ProblemsApiService],
   bootstrap: [AppComponent]
