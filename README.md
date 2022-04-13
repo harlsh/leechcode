@@ -55,8 +55,10 @@ Testing the Frontend using Angular unit testing:
 5. Run `ng serve`
 6. In another terminal Run `ng test` to start the tests
 
-
-
+If you want to add data:
+  1. Get your csrf-token and cookie after you login to `leetcode.com` and update in leech1.py
+  2. Run `python leech1.py`. This will generate `data.json`
+  3. Run `python leech2.py`. This will post all the data in data.json to the server.
 
 Team Members
  - Yash Tibrewal (github username: yashtibrewal) [Backend]

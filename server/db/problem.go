@@ -12,6 +12,7 @@ type Problem struct {
 	Dislikes         int    `json:"dislikes"`
 	ExampleTestCases string `json:"exampleTestCases"`
 	Hints            string `json:"hints"`
+	Solution         string `json:"solution"`
 }
 
 type CodeSnippet struct {
