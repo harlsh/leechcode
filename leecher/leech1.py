@@ -5,9 +5,9 @@ import json
 # Fill in these details to be able to send a request, more details in README
 
 HEADERS = {
-    'x-csrftoken': 'YOUR-CSRF-TOKEN',
+    'x-csrftoken': '<YOUR-CSRF-TOKEN>',
     'Referer': 'https://leetcode.com/problems',
-    'Cookie': 'YOUR-COOKIE'
+    'Cookie': 'NEW_PROBLEMLIST_PAGE=1'
 }
 
 graphql_url = "https://leetcode.com/graphql"
@@ -46,6 +46,7 @@ def leech( question ):
             difficulty
             likes
             dislikes
+            exampleTestcases
             solution {
                 content
             }
