@@ -1,8 +1,9 @@
 <div class="problem">
     <div class="problemTitle">
         <h2 class="title">{{title}}</h2>
-        <h2 style ="color: #238823;"class="difficulty">{{difficulty}}</h2>
-        
+        <h2 class="data-green" *ngIf="difficulty === 'Easy'">{{difficulty}}</h2>
+        <h2 class="data-yellow" *ngIf="difficulty === 'Medium'">{{difficulty}}</h2>
+        <h2 class="data-red" *ngIf="difficulty === 'Hard'">{{difficulty}}</h2>
     </div>
     <div class="description" [innerHTML]="description">
     </div>

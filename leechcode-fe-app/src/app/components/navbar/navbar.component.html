@@ -12,7 +12,7 @@
           <a class="nav-link" style="color: white; font-family: Montserrat; font-size: 2em; text-decoration: none;">About Us</a>
         </li>
         <li class="nav-item" style="margin-left: 40px;">
-            <a class="nav-link" style="color: white; font-family: Montserrat; font-size: 2em; text-decoration: none;" routerLink="/admin/problemlist">Problems</a>
+            <a class="nav-link" style="color: white; font-family: Montserrat; font-size: 2em; text-decoration: none;" routerLink="/problems">Problems</a>
           </li>
           <li class="nav-item" style="margin-left: 40px;">
             <a class="nav-link" style="color: white; font-family: Montserrat; font-size: 2em; text-decoration: none;">Discuss</a>
@@ -21,13 +21,17 @@
     </div>
     <div class="navbar navbar-expand-lg navbar-light bg-transparent" style="margin-right: 2%;">
       <ul class="navbar-nav me-auto">
-        <li class="nav-item"  *ngIf="!authService.userData as user">
+        <li class="nav-item"  *ngIf="!isLoggedIn">
           <a class="nav-link" style="color: black; font-family: Montserrat; font-size: 2em; text-decoration: none; border-radius: 5px;
           background-color: white; padding: 10px;" routerLink="/login">Sign In</a>
         </li>
-        <li class="nav-item"  *ngIf="authService.userData as user">
+        <li class="nav-item"  *ngIf="isLoggedIn">
           <a class="nav-link" style="color: black; font-family: Montserrat; font-size: 2em; text-decoration: none; border-radius: 5px;
           background-color: white; padding: 10px;" (click)="logout()" routerLink="/home">Sign Out</a>
+        </li>
+        <li class="nav-item"  *ngIf="isLoggedIn">
+          <a class="nav-link" style="color: black; font-family: Montserrat; font-size: 2em; text-decoration: none; border-radius: 5px;
+          background-color: white; padding: 10px; margin-left: 5%;"  routerLink="/admin/problemlist">Profile</a>
         </li>
       </ul>
   </div>

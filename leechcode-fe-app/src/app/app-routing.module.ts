@@ -12,6 +12,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { GuardGuard } from './services/guard.guard';
 import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
+import { ProblemListComponent } from './components/problem-list/problem-list.component';
 
 const routes: Routes = [{
   path: 'home', component: HomePageComponent
@@ -22,6 +23,7 @@ const routes: Routes = [{
 }, {path: 'problem/:titleSlug/description', component: ProblemPageComponent 
 }, {path: 'problem/:titleSlug/solution', component: SolutionPageComponent 
 },{path: 'admin', component: AdminPanelComponent  , canActivate: [GuardGuard]
+},{path: 'problems', component: ProblemListComponent , canActivate: [GuardGuard]
 },{path: 'admin/problemlist', component: AdminProbListComponent , canActivate: [GuardGuard]
 },{path: 'admin/createproblem', component: CreateProblemComponent , canActivate: [GuardGuard]
 },{path: 'admin/updateproblem/:titleSlug', component: UpdateProblemComponent , canActivate: [GuardGuard]

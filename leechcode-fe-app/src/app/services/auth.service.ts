@@ -38,6 +38,7 @@ export class AuthService {
       }
     });
   }
+  user$ = this.afAuth.authState;
   SignIn(email: string, password: string) {
     return this.afAuth
       .signInWithEmailAndPassword(email, password)

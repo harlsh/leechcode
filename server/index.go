@@ -3,14 +3,14 @@ package main
 import (
 	"leechcode/db"
 	"leechcode/handlers"
-
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
 func RunRouter() {
 	gin.ForceConsoleColor()
 	router := gin.Default()
-
+	router.Use(cors.Default())
 	db.ConnectDatabase()
 
 	repo := &handlers.ProblemRepository{

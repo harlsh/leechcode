@@ -7,6 +7,7 @@ require (
 	github.com/gin-gonic/gin v1.7.7
 	gorm.io/driver/postgres v1.2.3
 	gorm.io/gorm v1.22.5
+	
 )
 
 require github.com/milindmadhukar/go-piston v0.0.0-20211122120254-64da61081d05 // indirect

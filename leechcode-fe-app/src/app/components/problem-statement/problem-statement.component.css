@@ -29,3 +29,13 @@
   max-height: 90%;
   scrollbar-width: thin;
 }
+.data-green{
+  color: #238823 !important;
+}
+.data-red{
+
+  color: #D2222D !important;
+}
+.data-yellow{
+  color: #FFBF00 !important;
+}

@@ -32,7 +32,9 @@
       <tr *ngFor="let problem of problems; let i = index" [attr.data-index]="i">
         <td class="data">{{ i }}</td>
         <td class="data">{{ problem.title }}</td>
-        <td class="data">{{ problem.difficulty }}</td>
+        <td class="data-green" *ngIf="problem.difficulty ===  'Easy'">Easy</td>
+            <td class="data-yellow" *ngIf="problem.difficulty ===  'Medium'">{{ problem.difficulty }}</td>
+            <td class="data-red" *ngIf="problem.difficulty ===  'Hard'">{{ problem.difficulty }}</td>
         <td class="data">
           <button
             (click)="updateProblem(problem.titleSlug)"

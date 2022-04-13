@@ -1,27 +1,31 @@
-<html>
-    <body>
-<div class="background" >
-    <div class="box">
-        <div class="title">
-            <div class="navbar">
-                <div class="pages">
-                  
-                        <button class="aboutusbtn">About us</button>
-                        <button class="problemsbtn">Problems</button>
-                        <button class="discussbtn">Discuss</button>
-                        <button class="signinbtn" >Sign in</button>
-
-                </div>
-            </div>
-
-        </div>
-        <button class="title">LeechCode</button>
-
-    </div>
-    <div class="infolayout">
-        
-    </div> 
-    
+<app-navbar></app-navbar>
+<div class="box">
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th class="header">Id</th>
+            <th class="header" >Title</th>
+            <th class="header">Difficulty</th>
+            <th class="header">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let problem of problems; let i = index" [attr.data-index]="i">
+            <td class="data">{{ i }}</td>
+            <td class="data">{{ problem.title }}</td>
+            <td class="data-green" *ngIf="problem.difficulty ===  'Easy'">Easy</td>
+            <td class="data-yellow" *ngIf="problem.difficulty ===  'Medium'">{{ problem.difficulty }}</td>
+            <td class="data-red" *ngIf="problem.difficulty ===  'Hard'">{{ problem.difficulty }}</td>
+            <td class="data">
+              <button
+                (click)="viewProblem(problem.titleSlug)"
+                class="btn btn-info"
+                style="margin-left: 10px"
+              >
+                View
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
 </div>
-</body>
-</html>

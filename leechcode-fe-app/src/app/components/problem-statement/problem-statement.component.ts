@@ -22,7 +22,7 @@ export class ProblemStatementComponent implements OnInit {
   ngOnInit(): void {
     this.titleSlug = this.route.snapshot.params['titleSlug'];
     this.pa.getProblemBySlug(this.titleSlug).subscribe(data => {
-      this.data =  Object.values(data)[0]
+      this.data =  Object.values(data)[1]
       this.problem = this.problemToJSON(JSON.stringify(this.data));
       this.title = this.problem.title;
       this.description = this.problem.content;
