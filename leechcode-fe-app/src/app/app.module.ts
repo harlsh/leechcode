@@ -51,6 +51,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from '../environments/environment';
 import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
 import { ForgotpasswordformComponent } from './components/forgotpassword/forgotpasswordform/forgotpasswordform.component';
+import { AdminManageUsersComponent } from './components/adminpanel/admin-manage-users/admin-manage-users.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { ForgotpasswordformComponent } from './components/forgotpassword/forgotp
     RegisterComponent,
     ForgotpasswordComponent,
     ForgotpasswordformComponent,
+    AdminManageUsersComponent,
     
   ],
   imports: [

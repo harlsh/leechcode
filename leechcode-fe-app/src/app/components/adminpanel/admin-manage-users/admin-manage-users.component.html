@@ -1,0 +1,52 @@
+<app-navbar></app-navbar>
+<div class="box">
+  <ul class="nav">
+    <li class="nav-item">
+      <a
+        class="nav-link active"
+        routerLink="/admin/problemlist"
+        aria-current="page"
+        href="#"
+        style="color:black; font-family: Montserrat; font-size: 1.5em;"
+        >Problem List</a
+      >
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/admin/createproblem" href="#"
+      style="color:black; font-family: Montserrat; font-size: 1.5em;"
+        >Create Problem</a
+      >
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/admin/manageusers" href="#"
+      style="color:black; font-family: Montserrat; font-size: 1.5em;"
+        >Manage Users</a
+      >
+    </li>
+  </ul>
+  <h3 style="color:black; font-family: Montserrat; font-size: 2em; font-weight: 400;">Manage Users</h3>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th class="header" >Email</th>
+        <th class="header">Role</th>
+        <th class="header">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users; let i = index" [attr.data-index]="i">
+          <td class="data">{{ user.email }}</td>
+          <td class="data-green" *ngIf="user.isAdmin">Admin</td>
+          <td class="data-green" *ngIf="!user.isAdmin">User</td>
+          <td class="data">
+            <button
+              class="btn btn-danger"
+              style="margin-left: 10px"
+            >
+              Change Role
+            </button>
+          </td>
+        </tr>
+      </tbody>
+  </table>
+</div>

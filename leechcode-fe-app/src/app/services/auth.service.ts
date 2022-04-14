@@ -5,6 +5,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  user,
 } from '@angular/fire/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import * as auth from 'firebase/auth';
@@ -14,6 +15,7 @@ import {
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
 import { Injectable, NgZone } from '@angular/core';
+import { map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -57,9 +59,17 @@ export class AuthService {
     return this.afAuth
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
+
         /* Call the SendVerificaitonMail() function when new user sign 
         up and returns promise */
         this.SetUserData(result.user);
+        const user = result.user;
+        if (user){
+          this.afs.collection('users').doc(user.uid).set({
+          isAdmin: false,
+          email: user.email,
+        });
+        }
       })
       .catch((error) => {
         window.alert(error.message);
@@ -82,6 +92,24 @@ export class AuthService {
     return user !== null  ? true : false;
   }
 
+  retrieveUsers(){
+    let query = this.afs.collection('users');
+
+    return query.get()
+    .pipe(
+        map(snapshot => {
+            let items: any[] = [];
+            snapshot.docs.map(a => {
+                const data = a.data();
+                const id = a.id;
+                items.push({ id, data })
+            })
+            return items;
+        }),
+    )
+
+  }
+
   GoogleAuth() {
     return this.AuthLogin(new auth.GoogleAuthProvider()).then((res: any) => {
       if (res) {
@@ -89,7 +117,6 @@ export class AuthService {
       }
     });
   }
-
   AuthLogin(provider: any) {
     return this.afAuth
       .signInWithPopup(provider)
@@ -98,6 +125,14 @@ export class AuthService {
           this.router.navigate(['/home']);
         });
         this.SetUserData(result.user);
+        const user = result.user;
+        if (user){
+          this.afs.collection('users').doc(user.uid).set({
+            isAdmin: false,
+            email: user.email,
+        });
+        }
+        
       })
       .catch((error) => {
         window.alert(error);
@@ -112,6 +147,7 @@ export class AuthService {
       uid: user.uid,
       email: user.email,
       displayName: user.displayName,
+      
     };
     return userRef.set(userData, {
       merge: true,
