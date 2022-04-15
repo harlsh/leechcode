@@ -1,13 +1,20 @@
+
+<div>
+  {{ output.run}}
+</div>
+
 <select
   name="userLanguage"
   class="userLanguage"
   [(ngModel)]="userLanguage"
   (change)="changeLanguage($event)"
 >
-  <option *ngFor="let lang of availableLanguages" value="{{ lang }}">
-    {{ lang }}
+  <option *ngFor="let compiler of compilers" value="{{ compiler.language }}">
+    {{ compiler.language }}
   </option>
 </select>
+<button mat-raised-button color="primary" (click)="runCode()">Run</button>
+
 <ngx-monaco-editor
   class="textEditorContainer"
   [options]="editorOptions"

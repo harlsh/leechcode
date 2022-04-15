@@ -22,6 +22,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatCardModule } from '@angular/material/card';
+import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SolveProblemComponent } from './solve-problem/solve-problem.component';
 import { ProblemContentComponent } from './problem-content/problem-content.component';
@@ -31,6 +32,8 @@ import { FormsModule } from '@angular/forms';
 import { EditorComponent } from './editor/editor.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     DataTableComponent,
     SolveProblemComponent,
     ProblemContentComponent,
-    EditorComponent
+    EditorComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -66,7 +70,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     HttpClientModule,
     FormsModule,
     MonacoEditorModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    CdkAccordionModule,
+    MatExpansionModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

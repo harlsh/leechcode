@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class SolveProblemComponent implements OnInit {
 
   titleSlug: string | undefined;
+  panelOpenState = false;
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
