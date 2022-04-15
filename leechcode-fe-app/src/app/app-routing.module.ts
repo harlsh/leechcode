@@ -27,10 +27,10 @@ const routes: Routes = [{
 },{path: 'admin', component: AdminPanelComponent  , canActivate: [GuardGuard]
 },{path: 'problems', component: ProblemListComponent , canActivate: [GuardGuard]
 },{path: 'myprofile', component: MyprofileComponent , canActivate: [GuardGuard]
-},{path: 'admin/problemlist', component: AdminProbListComponent , canActivate: [ProfileGuard]
-},{path: 'admin/manageusers', component: AdminManageUsersComponent , canActivate: [ProfileGuard]
-},{path: 'admin/createproblem', component: CreateProblemComponent , canActivate: [ProfileGuard]
-},{path: 'admin/updateproblem/:titleSlug', component: UpdateProblemComponent , canActivate: [ProfileGuard]
+},{path: 'myprofile/problemlist', component: AdminProbListComponent , canActivate: [ProfileGuard]
+},{path: 'myprofile/manageusers', component: AdminManageUsersComponent , canActivate: [ProfileGuard]
+},{path: 'myprofile/createproblem', component: CreateProblemComponent , canActivate: [ProfileGuard]
+},{path: 'myprofile/updateproblem/:titleSlug', component: UpdateProblemComponent , canActivate: [ProfileGuard]
 },{path: '', redirectTo: '/home', pathMatch: 'full' 
 },{ path: 'login', component: LoginComponent },{ path: 'register', component: RegisterComponent },{
   path: 'home',

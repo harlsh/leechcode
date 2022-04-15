@@ -34,6 +34,17 @@ export class AuthService {
         this.userData = user;
         localStorage.setItem('user', JSON.stringify(this.userData));
         JSON.parse(localStorage.getItem('user')!);
+        this.retrieveAdminStatus().subscribe((data: any) => {
+          if(data){
+          
+          let val = data.data().isAdmin;
+          console.log(val);
+          localStorage.setItem('isAdmin',val);
+        }
+        }
+          
+        );
+        
       } else {
         localStorage.setItem('user', 'null');
         JSON.parse(localStorage.getItem('user')!);
@@ -141,9 +152,9 @@ export class AuthService {
         const user = result.user;
         if (user){
           this.afs.collection('users').doc(user.uid).update({
-  
             email: user.email,
         });
+
         }
         
       })
@@ -170,6 +181,7 @@ export class AuthService {
   SignOut() {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
+      localStorage.removeItem('isAdmin');
       this.router.navigate(['sign-in']);
     });
   }

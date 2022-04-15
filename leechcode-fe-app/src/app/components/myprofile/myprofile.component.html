@@ -1,6 +1,41 @@
 <app-navbar></app-navbar>
 <div class="box">
+    <ul class="nav">
+        <li class="nav-item">
+            <a
+              class="nav-link active"
+              routerLink="/myprofile"
+              aria-current="page"
+              href="#"
+              style="color:black; font-family: Montserrat; font-size: 1.5em;"
+              >My Profile</a
+            >
+          </li>
+        <li class="nav-item" *ngIf="isAdmin">
+          <a
+            class="nav-link active"
+            routerLink="/myprofile/problemlist"
+            aria-current="page"
+            href="#"
+            style="color:black; font-family: Montserrat; font-size: 1.5em;"
+            >Problem List</a
+          >
+        </li>
+        <li class="nav-item" *ngIf="isAdmin">
+          <a class="nav-link" routerLink="/myprofile/createproblem" href="#"
+          style="color:black; font-family: Montserrat; font-size: 1.5em;"
+            >Create Problem</a
+          >
+        </li>
+        <li class="nav-item" *ngIf="isAdmin">
+          <a class="nav-link" routerLink="/myprofile/manageusers" href="#"
+          style="color:black; font-family: Montserrat; font-size: 1.5em;"
+            >Manage Users</a
+          >
+        </li>
+      </ul>
     <h3 style="color:black; font-family: Montserrat; font-size: 2em; font-weight: 400;">My Profile</h3>
+    <h4 style="color:black; font-family: Montserrat; font-size: 2em; font-weight: 400;">Problems Solved</h4>
     <table class="table table-striped">
       <thead>
         <tr>

@@ -20,6 +20,7 @@ export class UpdateProblemComponent implements OnInit {
       this.problem = this.problemToJSON(JSON.stringify(this.data));
       console.log(this.problem);
     })
+    
   }
 
   problemToJSON(json:string){

@@ -17,14 +17,7 @@ export class NavbarComponent implements OnInit {
     private router: Router,
     public cd: ChangeDetectorRef
   ) {
-    authService.adminState$.subscribe((data: any) => {
-
-      var obj = JSON.parse(JSON.stringify(data.data()));
-      let user = new simpleUser(obj.uid, obj.email, obj.isAdmin);
-      console.log(user);
-      this.isAdmin = user.isAdmin;
-     console.log("THIS IS ISADMIN",user.isAdmin);
-    });}
+    }
 
   ngOnInit(): void {
     this.authService.user$.subscribe(

@@ -16,10 +16,12 @@ export class ProfileGuard implements CanActivate {
     this.authService.user$.subscribe(
         userData => this.isLoggedIn = !!userData
     );
-    this.authService.adminState$.subscribe((data: any) => {
-      this.isAdmin = data.data().isAdmin;
-        console.log(this.isAdmin);
-      });
+    const rawAdminStatus =localStorage.getItem('isAdmin');
+    if (rawAdminStatus){
+      this.isAdmin = JSON.parse(rawAdminStatus);
+    }else {
+      this.isAdmin = false;
+    }
   }
   canActivate(
     next: ActivatedRouteSnapshot,
