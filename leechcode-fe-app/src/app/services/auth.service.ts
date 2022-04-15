@@ -5,6 +5,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  user,
 } from '@angular/fire/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import * as auth from 'firebase/auth';
@@ -14,6 +15,7 @@ import {
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
 import { Injectable, NgZone } from '@angular/core';
+import { map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -32,6 +34,17 @@ export class AuthService {
         this.userData = user;
         localStorage.setItem('user', JSON.stringify(this.userData));
         JSON.parse(localStorage.getItem('user')!);
+        this.retrieveAdminStatus().subscribe((data: any) => {
+          if(data){
+          
+          let val = data.data().isAdmin;
+          console.log(val);
+          localStorage.setItem('isAdmin',val);
+        }
+        }
+          
+        );
+        
       } else {
         localStorage.setItem('user', 'null');
         JSON.parse(localStorage.getItem('user')!);
@@ -39,6 +52,7 @@ export class AuthService {
     });
   }
   user$ = this.afAuth.authState;
+  adminState$  = this.retrieveAdminStatus();
   SignIn(email: string, password: string) {
     return this.afAuth
       .signInWithEmailAndPassword(email, password)
@@ -57,9 +71,17 @@ export class AuthService {
     return this.afAuth
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
+
         /* Call the SendVerificaitonMail() function when new user sign 
         up and returns promise */
         this.SetUserData(result.user);
+        const user = result.user;
+        if (user){
+          this.afs.collection('users').doc(user.uid).set({
+          isAdmin: false,
+          email: user.email,
+        });
+        }
       })
       .catch((error) => {
         window.alert(error.message);
@@ -82,6 +104,36 @@ export class AuthService {
     return user !== null  ? true : false;
   }
 
+  retrieveUsers(){
+    let query = this.afs.collection('users');
+    return query.get()
+    .pipe(
+        map(snapshot => {
+            let items: any[] = [];
+            snapshot.docs.map(a => {
+                const data = a.data();
+                const id = a.id;
+                items.push({ id, data })
+            })
+            return items;
+        }),
+    )
+
+  }
+
+ retrieveAdminStatus(){
+    let userObj = JSON.parse(localStorage.getItem('user')!);
+    if(userObj){
+      return this.afs.collection('users').doc(userObj.uid).get();
+    }
+    return userObj;
+  }
+  toggleAdmin(uid: string, admin: boolean){
+    this.afs.collection('users').doc(uid).update({
+      isAdmin: admin,
+    });
+  }
+
   GoogleAuth() {
     return this.AuthLogin(new auth.GoogleAuthProvider()).then((res: any) => {
       if (res) {
@@ -89,7 +141,6 @@ export class AuthService {
       }
     });
   }
-
   AuthLogin(provider: any) {
     return this.afAuth
       .signInWithPopup(provider)
@@ -98,6 +149,14 @@ export class AuthService {
           this.router.navigate(['/home']);
         });
         this.SetUserData(result.user);
+        const user = result.user;
+        if (user){
+          this.afs.collection('users').doc(user.uid).update({
+            email: user.email,
+        });
+
+        }
+        
       })
       .catch((error) => {
         window.alert(error);
@@ -112,6 +171,7 @@ export class AuthService {
       uid: user.uid,
       email: user.email,
       displayName: user.displayName,
+      
     };
     return userRef.set(userData, {
       merge: true,
@@ -121,6 +181,7 @@ export class AuthService {
   SignOut() {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
+      localStorage.removeItem('isAdmin');
       this.router.navigate(['sign-in']);
     });
   }
