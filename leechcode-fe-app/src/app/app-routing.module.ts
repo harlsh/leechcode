@@ -11,9 +11,11 @@ import { ProblemDiscussPageComponent } from './components/problem-page/problem-d
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { GuardGuard } from './services/guard.guard';
+import { ProfileGuard } from './services/profile.guard';
 import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassword.component';
 import { ProblemListComponent } from './components/problem-list/problem-list.component';
 import { AdminManageUsersComponent } from './components/adminpanel/admin-manage-users/admin-manage-users.component';
+import { MyprofileComponent } from './components/myprofile/myprofile.component';
 const routes: Routes = [{
   path: 'home', component: HomePageComponent
 },{
@@ -24,10 +26,11 @@ const routes: Routes = [{
 }, {path: 'problem/:titleSlug/solution', component: SolutionPageComponent 
 },{path: 'admin', component: AdminPanelComponent  , canActivate: [GuardGuard]
 },{path: 'problems', component: ProblemListComponent , canActivate: [GuardGuard]
-},{path: 'admin/problemlist', component: AdminProbListComponent , canActivate: [GuardGuard]
-},{path: 'admin/manageusers', component: AdminManageUsersComponent , canActivate: [GuardGuard]
-},{path: 'admin/createproblem', component: CreateProblemComponent , canActivate: [GuardGuard]
-},{path: 'admin/updateproblem/:titleSlug', component: UpdateProblemComponent , canActivate: [GuardGuard]
+},{path: 'myprofile', component: MyprofileComponent , canActivate: [GuardGuard]
+},{path: 'admin/problemlist', component: AdminProbListComponent , canActivate: [ProfileGuard]
+},{path: 'admin/manageusers', component: AdminManageUsersComponent , canActivate: [ProfileGuard]
+},{path: 'admin/createproblem', component: CreateProblemComponent , canActivate: [ProfileGuard]
+},{path: 'admin/updateproblem/:titleSlug', component: UpdateProblemComponent , canActivate: [ProfileGuard]
 },{path: '', redirectTo: '/home', pathMatch: 'full' 
 },{ path: 'login', component: LoginComponent },{ path: 'register', component: RegisterComponent },{
   path: 'home',

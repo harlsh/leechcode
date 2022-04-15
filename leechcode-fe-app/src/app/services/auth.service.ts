@@ -41,6 +41,7 @@ export class AuthService {
     });
   }
   user$ = this.afAuth.authState;
+  adminState$  = this.retrieveAdminStatus();
   SignIn(email: string, password: string) {
     return this.afAuth
       .signInWithEmailAndPassword(email, password)
@@ -94,7 +95,6 @@ export class AuthService {
 
   retrieveUsers(){
     let query = this.afs.collection('users');
-
     return query.get()
     .pipe(
         map(snapshot => {
@@ -108,6 +108,19 @@ export class AuthService {
         }),
     )
 
+  }
+
+ retrieveAdminStatus(){
+    let userObj = JSON.parse(localStorage.getItem('user')!);
+    if(userObj){
+      return this.afs.collection('users').doc(userObj.uid).get();
+    }
+    return userObj;
+  }
+  toggleAdmin(uid: string, admin: boolean){
+    this.afs.collection('users').doc(uid).update({
+      isAdmin: admin,
+    });
   }
 
   GoogleAuth() {
@@ -127,8 +140,8 @@ export class AuthService {
         this.SetUserData(result.user);
         const user = result.user;
         if (user){
-          this.afs.collection('users').doc(user.uid).set({
-            isAdmin: false,
+          this.afs.collection('users').doc(user.uid).update({
+  
             email: user.email,
         });
         }
