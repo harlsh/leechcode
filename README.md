@@ -61,7 +61,6 @@ If you want to add data:
   3. Run `python leech2.py`. This will post all the data in data.json to the server.
 
 Team Members
- - Yash Tibrewal (github username: yashtibrewal) [Backend]
  - Harish Reddy Bollavaram (harlsh) [Backend]
  - Erik Rosa [Frontend]
  - Vijay Raghav Reddy [Frontend]
