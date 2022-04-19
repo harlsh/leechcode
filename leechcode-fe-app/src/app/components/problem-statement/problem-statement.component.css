@@ -31,6 +31,7 @@
 }
 
 
+
 .box{
   /* octahedron 1 */
 
@@ -282,3 +283,15 @@ order: 1;
 flex-grow: 0;
 margin: 0px 0px;
 }
+=======
+.data-green{
+  color: #238823 !important;
+}
+.data-red{
+
+  color: #D2222D !important;
+}
+.data-yellow{
+  color: #FFBF00 !important;
+}
+

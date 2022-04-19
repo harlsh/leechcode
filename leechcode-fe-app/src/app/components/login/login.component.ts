@@ -16,14 +16,12 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
   loginWithGoogle() {
     this.authService
-      .loginWithGoogle()
-      .then(() => this.router.navigate(['/dashboard']))
+      .GoogleAuth()
       .catch((e) => console.log(e.message));
   }
   login(loginData: LoginData) {
     this.authService
-      .login(loginData)
-      .then(() => this.router.navigate(['/home']))
+      .SignIn(loginData.email, loginData.password)
       .catch((e) => console.log(e.message));
   }
 }

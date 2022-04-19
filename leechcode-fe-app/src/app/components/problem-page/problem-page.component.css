@@ -3,7 +3,7 @@
    flex: 50%;
 }
 .righthandside{
-  
+  width: 600px;
   flex: 50%;
 }
 .main-row{
@@ -24,13 +24,8 @@
     background-color: #F1F1F1;
     box-shadow: 0px 10px 15px 0px rgba(0,0,0,0.56);
 }
-.editor{}
-
-.submit-button{
-    width: 90%;
-    font-family: 'Montserrat', light;
-    font-weight: bold;
-    font-size: 20px;
-    background-color: #c4c4c4;
+app-editor{
+    width: 100%;
 }
+
 

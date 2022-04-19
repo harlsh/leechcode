@@ -4,7 +4,17 @@
     <li class="nav-item">
       <a
         class="nav-link active"
-        routerLink="/admin/problemlist"
+        routerLink="/myprofile"
+        aria-current="page"
+        href="#"
+        style="color:black; font-family: Montserrat; font-size: 1.5em;"
+        >My Profile</a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link active"
+        routerLink="/myprofile/problemlist"
         aria-current="page"
         href="#"
         style="color:black; font-family: Montserrat; font-size: 1.5em;"
@@ -12,9 +22,15 @@
       >
     </li>
     <li class="nav-item">
-      <a class="nav-link" routerLink="/admin/createproblem" href="#"
+      <a class="nav-link" routerLink="/myprofile/createproblem" href="#"
       style="color:black; font-family: Montserrat; font-size: 1.5em;"
         >Create Problem</a
+      >
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/myprofile/manageusers" href="#"
+      style="color:black; font-family: Montserrat; font-size: 1.5em;"
+        >Manage Users</a
       >
     </li>
   </ul>
@@ -32,7 +48,9 @@
       <tr *ngFor="let problem of problems; let i = index" [attr.data-index]="i">
         <td class="data">{{ i }}</td>
         <td class="data">{{ problem.title }}</td>
-        <td class="data">{{ problem.difficulty }}</td>
+        <td class="data-green" *ngIf="problem.difficulty ===  'Easy'">Easy</td>
+            <td class="data-yellow" *ngIf="problem.difficulty ===  'Medium'">{{ problem.difficulty }}</td>
+            <td class="data-red" *ngIf="problem.difficulty ===  'Hard'">{{ problem.difficulty }}</td>
         <td class="data">
           <button
             (click)="updateProblem(problem.titleSlug)"
