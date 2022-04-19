@@ -18,27 +18,13 @@ export class ProblemListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProblems();
-    
-  
   }
 
   getProblems(){
     this.pa.getProblems()
-    .subscribe(data => {
-      
-    this.data =  Object.values(data)[0]
-    for(var i = 0; i < this.data.length; i++){
-      this.problems.push(this.problemToJSON(JSON.stringify(this.data[i])));
-    }
-      
-    console.warn("problem object array", this.problems);
-    });
+    .subscribe(data => this.problems = data);
   }
   
-  problemToJSON(json:string){
-    var obj = JSON.parse(json);
-    return new Problem(obj.title,obj.titleSlug,obj.content,obj.difficulty,obj.likes,obj.dislikes,obj.exampleTestCase,obj.hints);
-  }
   viewProblem(titleSlug:string){
     this.router.navigate(["problem/" + titleSlug + "/description"]);
   }

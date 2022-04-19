@@ -8,6 +8,8 @@ import (
 	"gorm.io/gorm"
 
 	"leechcode/db"
+
+	piston "github.com/milindmadhukar/go-piston"
 )
 
 type ProblemRepository struct {
@@ -17,55 +19,12 @@ type ProblemRepository struct {
 func (p *ProblemRepository) FindProblem(c *gin.Context) {
 	var problems []db.Problem
 	p.DB.Find(&problems)
-	c.JSON(http.StatusOK, gin.H{
-		"data": problems})
+	c.JSON(http.StatusOK, problems)
 }
 
 func (p *ProblemRepository) FindProblemBySlug(c *gin.Context) {
 	var problem db.Problem
-	codeSnippets := []db.CodeSnippet{
 
-		{
-			Lang:     "C++",
-			LangSlug: "cpp",
-			Code:     "class Solution {\npublic:\n    vector<int> twoSum(vector<int>& nums, int target) {\n        \n    }\n};",
-		},
-		{
-			Lang:     "Java",
-			LangSlug: "java",
-			Code:     "class Solution {\n    public int[] twoSum(int[] nums, int target) {\n        \n    }\n}",
-		},
-		{
-			Lang:     "Python",
-			LangSlug: "python",
-			Code:     "class Solution(object):\n    def twoSum(self, nums, target):\n        \"\"\"\n        :type nums: List[int]\n        :type target: int\n        :rtype: List[int]\n        \"\"\"\n        ",
-		},
-		{
-			Lang:     "Python3",
-			LangSlug: "python3",
-			Code:     "class Solution:\n    def twoSum(self, nums: List[int], target: int) -> List[int]:\n        ",
-		},
-		{
-			Lang:     "C",
-			LangSlug: "c",
-			Code:     "\n\n/**\n * Note: The returned array must be malloced, assume caller calls free().\n */\nint* twoSum(int* nums, int numsSize, int target, int* returnSize){\n\n}",
-		},
-		{
-			Lang:     "C#",
-			LangSlug: "csharp",
-			Code:     "public class Solution {\n    public int[] TwoSum(int[] nums, int target) {\n        \n    }\n}",
-		},
-		{
-			Lang:     "JavaScript",
-			LangSlug: "javascript",
-			Code:     "/**\n * @param {number[]} nums\n * @param {number} target\n * @return {number[]}\n */\nvar twoSum = function(nums, target) {\n    \n};",
-		},
-		{
-			Lang:     "Ruby",
-			LangSlug: "ruby",
-			Code:     "# @param {Integer[]} nums\n# @param {Integer} target\n# @return {Integer[]}\ndef two_sum(nums, target)\n    \nend",
-		},
-	}
 	id := c.Param("id")
 
 	err := p.DB.Find(&problem, "title_slug = ?", id).Error
@@ -73,7 +32,7 @@ func (p *ProblemRepository) FindProblemBySlug(c *gin.Context) {
 		c.JSON(404, gin.H{"data": nil})
 		return
 	}
-	c.JSON(http.StatusOK, gin.H{"data": problem, "codeSnippets": codeSnippets})
+	c.JSON(http.StatusOK, problem)
 }
 
 func (p *ProblemRepository) CreateProblem(context *gin.Context) {
@@ -84,7 +43,7 @@ func (p *ProblemRepository) CreateProblem(context *gin.Context) {
 		return
 	}
 	p.DB.Create(&input)
-	context.JSON(http.StatusOK, gin.H{"data": input})
+	context.JSON(http.StatusOK, input)
 }
 
 // TODO: Implement the function
@@ -102,12 +61,56 @@ func (p *ProblemRepository) UpdateProblem(c *gin.Context) {
 	p.DB.Where("title_slug = ?", id).Delete(&deletedProb)
 
 	p.DB.Save(&input)
-	c.JSON(http.StatusOK, gin.H{"data": input})
+	c.JSON(http.StatusOK, input)
 }
 
 func (p *ProblemRepository) DeleteProblem(c *gin.Context) {
 	id := c.Param("id")
 	var deletedProb db.Problem
 	p.DB.Where("title_slug = ?", id).Delete(&deletedProb)
-	c.JSON(http.StatusOK, gin.H{"data": deletedProb})
+	c.JSON(http.StatusOK, deletedProb)
+}
+
+func (p *ProblemRepository) GetAllCompilers(context *gin.Context) {
+
+	client := piston.CreateDefaultClient()
+	runtimes, err := client.GetRuntimes()
+	if err != nil {
+		context.JSON(http.StatusNoContent, gin.H{})
+		return
+	}
+	context.JSON(http.StatusOK, runtimes)
+}
+
+func (p *ProblemRepository) ExecuteCode(context *gin.Context) {
+	var input db.Solution
+
+	if err := context.ShouldBindJSON(&input); err != nil {
+		context.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	problemSlug := input.ProblemSlug
+	var problem db.Problem
+	err := p.DB.Find(&problem, "title_slug = ?", problemSlug).Error
+	if errors.Is(err, gorm.ErrRecordNotFound) {
+		context.JSON(404, gin.H{"data": nil})
+		return
+	}
+
+	client := piston.CreateDefaultClient()
+	output, err := client.Execute(input.Language, "", // Passing language. Since no version is specified, it uses the latest supported version.
+		[]piston.Code{
+			{Content: input.Code},
+		}, // Passing Code.
+		piston.Stdin(problem.ExampleTestCases), // Passing input as "hello world".
+	)
+	if err != nil {
+		return
+	}
+	// creating an entry in the db
+	p.DB.Create(&input)
+
+	context.JSON(http.StatusOK, gin.H{"data": output, "testcases": problem.ExampleTestCases})
+
 }

@@ -10,24 +10,27 @@ import { ProblemsApiService } from 'src/app/models/problems-api.service';
 })
 export class UpdateProblemComponent implements OnInit {
   titleSlug: string;
-  problem = new Problem("","","","",12,12,"",""); 
+  problem: Problem = {
+    ID: 0,
+    CreatedAt: "xxx",
+    UpdatedAt: "xxx",
+    DeletedAt: "xxx",
+    title: "dummy",
+    titleSlug: "dummy",
+    content: "dummy",
+    difficulty: "dummy",
+    likes: 0,
+    dislikes: 0,
+    exampleTestCases: "xxx",
+    hints: "xxx"
+  };
   constructor(private pa: ProblemsApiService, private route: ActivatedRoute) { }
   data: Object[] = []
   ngOnInit(): void {
     this.titleSlug = this.route.snapshot.params['titleSlug'];
-    this.pa.getProblemBySlug(this.titleSlug).subscribe(data => {
-      this.data =  Object.values(data)[0]
-      this.problem = this.problemToJSON(JSON.stringify(this.data));
-      console.log(this.problem);
-    })
+    this.pa.getProblemBySlug(this.titleSlug).subscribe(data => this.problem)
     
   }
-
-  problemToJSON(json:string){
-    var obj = JSON.parse(json);
-    return new Problem(obj.title,obj.titleSlug,obj.content,obj.difficulty,obj.likes,obj.dislikes,obj.exampleTestCase,obj.hints);
-  }
-
   updateProblem(){
     
   }

@@ -3,7 +3,7 @@ package db
 import "gorm.io/gorm"
 
 type Problem struct {
-	gorm.Model       `json:"-"`
+	gorm.Model       
 	Title            string `json:"title"`
 	TitleSlug        string `json:"titleSlug"`
 	Content          string `json:"content"`
