@@ -71,6 +71,16 @@ func (p *ProblemRepository) DeleteProblem(c *gin.Context) {
 	c.JSON(http.StatusOK, deletedProb)
 }
 
+func (p *ProblemRepository) GetSubmissions(c *gin.Context) {
+	var solutions []db.Solution
+	err := p.DB.Find(&solutions, "user_id = ?", c.Param("id")).Error
+	if errors.Is(err, gorm.ErrRecordNotFound) {
+		c.JSON(404, gin.H{})
+		return
+	}
+	c.JSON(http.StatusOK, solutions)
+}
+
 func (p *ProblemRepository) GetAllCompilers(context *gin.Context) {
 
 	client := piston.CreateDefaultClient()
