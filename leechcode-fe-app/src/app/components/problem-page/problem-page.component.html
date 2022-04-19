@@ -35,17 +35,8 @@
       <app-problem-statement></app-problem-statement>
     </div>
     <div class="righthandside">
-      <ngx-codemirror
-        class="editor"
-        [(ngModel)]="originalCode"
-        [options]="{
-          lineNumbers: true,
-          theme: 'material',
-          mode: 'markdown',
-          lineWrapping: true
-        }"
-      ></ngx-codemirror>
-      <button class="submit-button">Submit Code</button>
+      <app-editor [problemSlug]="titleSlug"></app-editor>
+
     </div>
   </div>
 

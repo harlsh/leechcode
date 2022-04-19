@@ -8,22 +8,25 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProblemsApiService {
+  url = "http://localhost:8080/api/v1/"
 
-  constructor(private http: HttpClient) {
-    
-   }
-   getProblems() {
-     let url = "http://localhost:8080/api/v1/problems"
-    return this.http.get(url);
+  constructor(private http: HttpClient) {}
+
+   getProblems(): Observable<Problem[]> {
+    return this.http.get<Problem[]>(this.url + "problems")
   }
+
+
   createProblem(problem: Problem){
     let url = "http://localhost:8080/api/v1/problems"
     return this.http.post(url,problem);
   }
-  getProblemBySlug(slug: string){
+
+  getProblemBySlug(slug: string): Observable<Problem>{
     let url = "http://localhost:8080/api/v1/problems/"+slug
-    return this.http.get(url);
+    return this.http.get<Problem>(url);
   }
+
   deleteProblemBySlug(slug: string){
     let url = "http://localhost:8080/api/v1/problems/"+slug
     return this.http.delete(url);

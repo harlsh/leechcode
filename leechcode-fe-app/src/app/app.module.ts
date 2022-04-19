@@ -53,6 +53,7 @@ import { ForgotpasswordComponent } from './components/forgotpassword/forgotpassw
 import { ForgotpasswordformComponent } from './components/forgotpassword/forgotpasswordform/forgotpasswordform.component';
 import { AdminManageUsersComponent } from './components/adminpanel/admin-manage-users/admin-manage-users.component';
 import { MyprofileComponent } from './components/myprofile/myprofile.component';
+import { EditorComponent } from './components/editor/editor.component';
 
 @NgModule({
   declarations: [
@@ -76,6 +77,7 @@ import { MyprofileComponent } from './components/myprofile/myprofile.component';
     ForgotpasswordformComponent,
     AdminManageUsersComponent,
     MyprofileComponent,
+    EditorComponent,
     
   ],
   imports: [

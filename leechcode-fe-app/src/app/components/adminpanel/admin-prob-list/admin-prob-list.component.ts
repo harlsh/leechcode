@@ -23,22 +23,9 @@ export class AdminProbListComponent implements OnInit {
 
   getProblems(){
     this.pa.getProblems()
-    .subscribe(data => {
-      
-    this.data =  Object.values(data)[0]
-    for(var i = 0; i < this.data.length; i++){
-      this.problems.push(this.problemToJSON(JSON.stringify(this.data[i])));
-    }
-      
-    console.warn("problem object array", this.problems);
-    });
+    .subscribe(data => this.problems = data)
   }
   
-  problemToJSON(json:string){
-    var obj = JSON.parse(json);
-    return new Problem(obj.title,obj.titleSlug,obj.content,obj.difficulty,obj.likes,obj.dislikes,obj.exampleTestCase,obj.hints);
-  }
-
   updateProblem(titleSlug:string){
     this.router.navigate(['admin/updateproblem/',titleSlug]);
   }
@@ -49,7 +36,6 @@ export class AdminProbListComponent implements OnInit {
   deleteProblem(titleSlug:string){
     this.pa.deleteProblemBySlug(titleSlug).subscribe(data => {
       console.log(data);
-      this.problems = [];
       this.getProblems();
 
     });
