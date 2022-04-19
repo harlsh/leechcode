@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ProblemsApiService } from 'src/app/models/problems-api.service';
+import { Problem } from 'src/app/models/problem';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-solution-page',

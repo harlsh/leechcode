@@ -16,9 +16,6 @@ export class AdminProbListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProblems();
-
-    
-  
   }
 
   getProblems(){
