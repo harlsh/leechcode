@@ -14,6 +14,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import { ProblemPageComponent } from './components/problem-page/problem-page.component';
 import { ProblemStatementComponent } from './components/problem-statement/problem-statement.component';
 
+import { AboutusComponent } from './components/aboutus/aboutus.component';
 
 
 import { HomePageComponent } from './components/home-page/home-page.component';
@@ -59,6 +60,7 @@ import { MyprofileComponent } from './components/myprofile/myprofile.component';
     AppComponent,
     ProblemPageComponent,
     ProblemStatementComponent,
+    AboutusComponent,
     HomePageComponent,
     ProblemListComponent,
     ProblemListComponent,
