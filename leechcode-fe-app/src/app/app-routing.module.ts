@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminPanelComponent } from './components/adminpanel/adminpanel.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
+import { AboutusComponent } from './components/aboutus/aboutus.component';
 import { ProblemPageComponent } from './components/problem-page/problem-page.component';
 import { AdminProbListComponent } from './components/adminpanel/admin-prob-list/admin-prob-list.component';
 import { CreateProblemComponent } from './components/adminpanel/create-problem/create-problem.component';
@@ -21,6 +22,7 @@ const routes: Routes = [{
 },{
   path: 'forgotpassword', component: ForgotpasswordComponent
 }, {path: 'problem', component: ProblemPageComponent 
+}, {path: 'aboutus', component: AboutusComponent 
 }, {path: 'problem/:titleSlug/discuss', component: ProblemDiscussPageComponent 
 }, {path: 'problem/:titleSlug/description', component: ProblemPageComponent 
 }, {path: 'problem/:titleSlug/solution', component: SolutionPageComponent 
