@@ -44,6 +44,8 @@ export class EditorComponent implements OnInit {
         this.compilers = compilers
         console.log(this.compilers)
       })
+
+      
   }
 
   editorInit(editor: MonacoStandaloneCodeEditor) {
@@ -54,8 +56,15 @@ export class EditorComponent implements OnInit {
     this.editorOptions = { ...this.editorOptions, language: $event.currentTarget.value }
   }
   runCode(){
+    let user = localStorage.getItem('user');
+    let uid = "error";
+    if(user){
+      let userJSON = JSON.parse(user);
+      uid = userJSON.uid;
+    }
+    console.log(uid);
     let code: Code = {
-      userId: localStorage.getItem('uid'),
+      userId: uid,
       problemSlug: this.problemSlug,
       code: this.userCode,
       language: this.userLanguage
