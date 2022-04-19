@@ -3,6 +3,7 @@ package main
 import (
 	"leechcode/db"
 	"leechcode/handlers"
+
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
@@ -13,7 +14,7 @@ func RunRouter() {
 	router.Use(cors.Default())
 	db.ConnectDatabase()
 
-	repo := &handlers.ProblemRepository{
+	repo := &handlers.ProblemRepository{	
 		DB: db.DB,
 	}
 
@@ -29,7 +30,9 @@ func RunRouter() {
 
 	routerGroup.GET("compilers", repo.GetAllCompilers)
 	routerGroup.POST("execute", repo.ExecuteCode)
-	
+
+	routerGroup.GET("submissions/:id", repo.GetSubmissions)
+
 	routerGroup.POST("test-case", handlers.CreateTestCase)
 	routerGroup.GET("test-case/:id", handlers.GetTestCase)
 	routerGroup.GET("test-cases", handlers.GetTestCases)

@@ -60,6 +60,7 @@ export class EditorComponent implements OnInit {
       code: this.userCode,
       language: this.userLanguage
     }
+    console.log(localStorage.getItem('user')) // user is a string, need to parse uid and put it in line 58
     this.executeService.submitCode(code).subscribe( output => {
       let line = "\n-------------------------------------------\n"
       this.userCode += line +"output\n"+output.data.run.output
