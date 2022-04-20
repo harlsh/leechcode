@@ -58,7 +58,7 @@ margin: 0px 0px;
   font-family: Montserrat;
   font-style: normal;
   font-weight: 600;
-  font-size: 50px;
+  font-size: 30px;
   line-height: 80px;
   /* identical to box height, or 267% */
   display: flex;
@@ -66,7 +66,7 @@ margin: 0px 0px;
   background: none;
   border: none;
   
-  color: #ffffff;
+  color: #000000;
   
   
   /* Inside auto layout */
@@ -283,7 +283,7 @@ order: 1;
 flex-grow: 0;
 margin: 0px 0px;
 }
-=======
+
 .data-green{
   color: #238823 !important;
 }
