@@ -2,14 +2,16 @@
     font-family: Montserrat;
     display: flex;
     flex-direction: column;
-    margin-top: 10%;
+    margin-top: 3%;
     margin-left: 1.5%;
+    margin-right: 1.5%;
     color: rgb(59, 53, 53);
   }
   
   .paragraph{
     font-family:Montserrat; font-size: 3em;
     line-height: 1.3em;
+    color:white;
   }
   .subtitle{
     font-family:Montserrat; font-size: 4em; font-weight: 1000;
@@ -21,6 +23,7 @@
   
   html {
     box-sizing: border-box;
+   width: 100%;
   }
   
   *, *:before, *:after {
@@ -61,8 +64,10 @@
     color: white;
     background-color: #000;
     text-align: center;
+    text-overflow: wrap;
     cursor: pointer;
     width: 10%;
+    inline-size: min-content;
   }
   
   .button:hover {
