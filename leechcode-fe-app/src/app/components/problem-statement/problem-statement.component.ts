@@ -22,7 +22,7 @@ export class ProblemStatementComponent implements OnInit {
     likes: 0,
     dislikes: 0,
     exampleTestCases: "xxx",
-    hints: "xxx"
+    hints: "xxx",
   };
   titleSlug: string = "";
   originalCode: string = "class Solution {\n\tpublic int[] "+ this.titleSlug  +"(int[] nums, int target) {\n]t}\m}";

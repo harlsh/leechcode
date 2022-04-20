@@ -23,6 +23,7 @@ export class UpdateProblemComponent implements OnInit {
     dislikes: 0,
     exampleTestCases: "xxx",
     hints: "xxx"
+
   };
   constructor(private pa: ProblemsApiService, private route: ActivatedRoute) { }
   data: Object[] = []

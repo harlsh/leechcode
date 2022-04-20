@@ -11,4 +11,5 @@ export interface Problem {
     dislikes: number
     exampleTestCases: string
     hints: string
+
   }

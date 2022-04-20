@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Problem } from './problem';
 import { Submission } from './submission';
 import { Observable } from 'rxjs';
+import { Problemsolution } from './problemsolution';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,10 @@ export class ProblemsApiService {
   getProblemBySlug(slug: string): Observable<Problem>{
     let url = "http://localhost:8080/api/v1/problems/"+slug
     return this.http.get<Problem>(url);
+  }
+  getProblemsolutionBySlug(slug: string): Observable<Problemsolution>{
+    let url = "http://localhost:8080/api/v1/problems/"+slug
+    return this.http.get<Problemsolution>(url);
   }
 
   deleteProblemBySlug(slug: string){
