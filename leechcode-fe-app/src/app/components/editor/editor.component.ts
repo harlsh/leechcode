@@ -21,6 +21,8 @@ export class EditorComponent implements OnInit {
 
   @ViewChild(MonacoEditorComponent, { static: false }) monacoComponent!: MonacoEditorComponent;
   @Input() problemSlug: string = "";
+  @Input() originalCode: string = "/*The output will be shown right in this editor. Please remove it before you submit again.*/";
+  @Input() language: string = "javascript";
 
   userCode: string = "/*The output will be shown right in this editor. Please remove it before you submit again.*/";
   compilers: Compiler[] = []
@@ -29,7 +31,7 @@ export class EditorComponent implements OnInit {
   userTheme: string = "vs-dark";
   editorOptions: MonacoEditorConstructionOptions = {
     theme: this.userTheme,
-    language: this.userLanguage,
+    language: this.language,
     roundedSelection: true
   };
 
@@ -42,8 +44,12 @@ export class EditorComponent implements OnInit {
     this.compilerService.getCompilers()
       .subscribe(compilers => {
         this.compilers = compilers
-        console.log(this.compilers)
+        //console.log(this.compilers)
       })
+      this.userCode = this.originalCode;
+      this.editorOptions = { ...this.editorOptions, language: this.language }
+      console.log(this.language)
+      console.log(this.originalCode);
 
       
   }

@@ -35,17 +35,33 @@
         </li>
       </ul>
     <h3 style="color:black; font-family: Montserrat; font-size: 2em; font-weight: 400;">My Profile</h3>
-    <h4 style="color:black; font-family: Montserrat; font-size: 2em; font-weight: 400;">Problems Solved</h4>
+    <h4 style="color:black; font-family: Montserrat; font-size: 2em; font-weight: 400;">Submission History</h4>
     <table class="table table-striped">
       <thead>
         <tr>
-          <th class="header" >Problem Name</th>
-          <th class="header">Difficulty</th>
+          <th class="header">Submission</th>
+          <th class="header" >Problem Slug</th>
+          <th class="header">Language</th>
           <th class="header">Actions</th>
         </tr>
       </thead>
       <tbody>
-          
+        <tr *ngFor="let sub of submissions; let i = index" [attr.data-index]="i">
+           <td class="data">{{i}}</td>
+          <td class="data">{{ sub.problemSlug }}</td>
+          <td class="data">{{sub.language}}</td>
+         
+
+          <td class="data">
+            <button
+              (click)="viewProblem(sub.problemSlug,sub.code,sub.language)"
+              class="btn btn-info"
+              style="margin-left: 10px"
+            >
+              View
+            </button>
+          </td>
+        </tr>
         </tbody>
     </table>
   </div>

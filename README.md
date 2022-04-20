@@ -41,6 +41,9 @@ Running the Backend:
 3. `docker-compose up`
 4. The server will be up and running on port 8080. 
 5. If you wanna check test the rest end points in style, install rest-client plugin for VS code, and open `**.rest` files in server -> documentation.
+**Note: If you encounter `ERROR: for <name>  Cannot start service <name>:`
+1. use `docker container ls` to view a list of active containers.
+2. stop all active containers by running `docker stop <container id>`
 
 Testing the Frontend using Cypress:
 1. cd into leechcode-fe-app
@@ -57,6 +60,11 @@ Testing the Frontend using Angular unit testing:
 
 If you want to add data:
   1. Get your csrf-token and cookie after you login to `leetcode.com` and update in leech1.py
+    a. After logging in, right-click on the page and press Inspect.
+    b. Refresh the page.
+    c. Click on the network tab and look for the leetcode.com request 
+    d. Click on the headers tab and find the request header in the cookie.
+    e. copy the csrf token and place in leech1.py, the token should match this form `csrftoken=<tokenid>;`
   2. Run `python leech1.py`. This will generate `data.json`
   3. Run `python leech2.py`. This will post all the data in data.json to the server.
 

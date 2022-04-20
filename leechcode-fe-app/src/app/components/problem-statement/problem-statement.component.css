@@ -21,7 +21,7 @@
 .problem{
   align-content: flex-start;
   border-radius: 5px;
-  width:100%;
+  width:90%;
   padding-right: 2%;
   margin-top: 10%;
   overflow-y: auto;

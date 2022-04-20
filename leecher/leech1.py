@@ -4,8 +4,10 @@ import json
 
 # Fill in these details to be able to send a request, more details in README
 
+
+
 HEADERS = {
-    'x-csrftoken': '<YOUR-CSRF-TOKEN>',
+    'x-csrftoken': 'swWjetHzxvQaEdFLgZHfw9Eer3PD54SWx3XmAJLlXUEGcPhYGfwZUlCtmx0MN11K',
     'Referer': 'https://leetcode.com/problems',
     'Cookie': 'NEW_PROBLEMLIST_PAGE=1'
 }
@@ -76,8 +78,8 @@ question_list = get_question_list()
 # Prints progress
 
 for i, question in enumerate( question_list ):
-    # if i == 100:
-    #     break
+    if i == 50:
+        break
     leech( question )
     print( f"Fetched {i+1}/{len(question_list)} questions" )
 
