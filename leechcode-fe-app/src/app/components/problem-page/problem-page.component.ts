@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 
@@ -11,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ProblemPageComponent implements OnInit {
   
   descriptionUrl: String[];
+  language:string;
   solutionUrl: String[];
   discussUrl:String[];
   editorOptions = {theme: 'vs-dark', language: 'javascript'};
@@ -25,6 +26,21 @@ export class ProblemPageComponent implements OnInit {
     this.descriptionUrl = ["/problem/"+ this.titleSlug +"/description"];
     this.solutionUrl = ["/problem/" + this.titleSlug+ "/solution"];
     this.discussUrl = ["/problem/"+ this.titleSlug +"/discuss"];
+    const navigation = this.route.params;
+    if( navigation){
+      const state = navigation.subscribe(data => {
+        if(data){
+          this.originalCode = data['code'];
+          this.language= data['language']
+        } 
+      }
+      )
+      console.log(this.language);
+    
+    }else{
+      console.log("its null")
+    }
+    
   }
 
 
