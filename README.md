@@ -20,7 +20,8 @@ TODO
 Checkout the Git Wiki for this project for API documentation.
 
 ## Project Board
-We're using Github Projects, so please checkout the Github Projects for this project.
+This repository initially belonged to Yash Tibrewal and it had a `Git Projects` for it, but after transferring the ownership to me, we lost the Project.
+But, we still have the `Issues` saved. So please checkout our Issues to view our project board.
 
 ## Sprint 4 deliverables
 - [x] Integrate Monaco with Piston and execute user code from the front-end
