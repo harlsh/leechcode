@@ -7,6 +7,16 @@ This project is a clone of leetcode. Users can solve algorithmic problems on thi
 Our tech stack is 
 Go, Angular and postgres.
 
+## Project Demo
+[![Watch the video](https://img.youtube.com/vi/P6Sbge1xVU8/default.jpg)](https://youtu.be/P6Sbge1xVU8)
+
+## Backend Unit Tests Demo
+[![Watch the video](https://img.youtube.com/vi/KpalPzLB-pk/default.jpg)](https://youtu.be/KpalPzLB-pk)
+
+## Frontend Cypress Tests Demo
+TODO
+
+
 Running the Frontend:
 1. CD into leechcode-fe-app.
 2. Install nodejs from `https://nodejs.org/en/`
