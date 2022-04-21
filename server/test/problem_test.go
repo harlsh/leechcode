@@ -102,3 +102,33 @@ func TestProblemGet(t *testing.T) {
 		t.Fatalf("Expected to get status %d but instead got %d\n", http.StatusOK, w.Code)
 	}
 }
+
+func TestCodeExecution(t *testing.T) {
+	Init()
+
+	solution := db.Solution{
+		UserId:      "1",
+		ProblemSlug: "two-sum",
+		Code:        "package main\nimport \"fmt\"\nfunc main() {fmt.Println(\"hello world\")}",
+		Language:    "go",
+	}
+	body, _ := json.Marshal(solution)
+	req, err := http.NewRequest(http.MethodPost, "/execute", bytes.NewBuffer(body))
+
+	if err != nil {
+		t.Fatalf("Couldn't create a request: %v\n", err)
+	}
+
+	w := httptest.NewRecorder()
+
+	r.ServeHTTP(w, req)
+
+	if w.Code == http.StatusOK {
+		// t.Logf("Expected to get status %d is same ast %d\n", http.StatusOK, w.Code)
+		t.Fatalf("Expected to get status %d but instead got %d\n", http.StatusOK, w.Code)
+	} else {
+		// t.Fatalf("Expected to get status %d but instead got %d\n", http.StatusOK, w.Code)
+		t.Logf("Expected to get status %d is same ast %d\n", http.StatusOK, w.Code)
+	}
+
+}

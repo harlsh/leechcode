@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"errors"
+	"fmt"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -94,7 +95,6 @@ func (p *ProblemRepository) GetAllCompilers(context *gin.Context) {
 
 func (p *ProblemRepository) ExecuteCode(context *gin.Context) {
 	var input db.Solution
-
 	if err := context.ShouldBindJSON(&input); err != nil {
 		context.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
