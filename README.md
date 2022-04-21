@@ -16,6 +16,17 @@ Go, Angular and postgres.
 ## Frontend Cypress Tests Demo
 TODO
 
+## API Documentation
+Checkout the Git Wiki for this project for API documentation.
+
+## Project Board
+We're using Github Projects, so please checkout the Github Projects for this project.
+
+## Sprint 4 deliverables
+- [x] Integrate Monaco with Piston and execute user code from the front-end
+- [x] User management with firebase auth
+- [x] Unit Tests
+- [x] Scrape data from leetcode(Have over 2000 problems in our database scraped from leetcode) 
 
 ## Setup
 Running the Frontend:
