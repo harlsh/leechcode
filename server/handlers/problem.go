@@ -95,12 +95,10 @@ func (p *ProblemRepository) GetAllCompilers(context *gin.Context) {
 
 func (p *ProblemRepository) ExecuteCode(context *gin.Context) {
 	var input db.Solution
-	fmt.Println("hello mother")
 	if err := context.ShouldBindJSON(&input); err != nil {
 		context.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
-	fmt.Println("hello mother")
 
 	problemSlug := input.ProblemSlug
 	var problem db.Problem
