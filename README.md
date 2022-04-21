@@ -14,7 +14,7 @@ Go, Angular and postgres.
 [![Watch the video](https://img.youtube.com/vi/KpalPzLB-pk/default.jpg)](https://youtu.be/KpalPzLB-pk)
 
 ## Frontend Cypress Tests Demo
-TODO
+[![Watch the video](https://img.youtube.com/vi/KpalPzLB-pk/default.jpg)](https://www.youtube.com/watch?v=4zRmEE-cZdM&ab_channel=ErikRosa)
 
 ## API Documentation
 Checkout the Git Wiki for this project for API documentation.
