@@ -17,6 +17,7 @@ Go, Angular and postgres.
 TODO
 
 
+## Setup
 Running the Frontend:
 1. CD into leechcode-fe-app.
 2. Install nodejs from `https://nodejs.org/en/`
