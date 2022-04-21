@@ -18,16 +18,20 @@ TODO
 
 ## API Documentation
 Checkout the Git Wiki for this project for API documentation.
+https://github.com/harlsh/leechcode/wiki
 
 ## Project Board
 This repository initially belonged to Yash Tibrewal and it had a `Git Projects` for it, but after transferring the ownership to me, we lost the Project.
-But, we still have the `Issues` saved. So please checkout our Issues to view our project board.
+But, we still have the `Issues` saved. So please checkout our Issues to view our project board. 
+https://github.com/harlsh/leechcode/issues?q=is%3Aissue+is%3Aclosed
 
 ## Sprint 4 deliverables
 - [x] Integrate Monaco with Piston and execute user code from the front-end
 - [x] User management with firebase auth
+- [x] Generate solutions page for each problem
 - [x] Unit Tests
 - [x] Scrape data from leetcode(Have over 2000 problems in our database scraped from leetcode) 
+link to sprint 4 deliverables: https://github.com/harlsh/leechcode/issues?q=is%3Aissue+is%3Aclosed+label%3A%22sprint+4%22
 
 ## Setup
 Running the Frontend:
